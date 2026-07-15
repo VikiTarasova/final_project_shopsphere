@@ -37,5 +37,22 @@ ORDER BY
 LIMIT 10;
 
 -- 1.3. Kategorien: Umsatz, Marge und Retouren
+SELECT
+    p.category,
+    SUM(oi.line_total) AS category_revenue,
+    AVG(p.margin_pct) AS avg_margin,
+    AVG(o.is_returned) AS return_rate
+FROM shopsphere_order_items oi
+
+JOIN shopsphere_products p
+    ON oi.product_id = p.product_id
+
+JOIN shopsphere_orders o
+    ON oi.order_id = o.order_id
+
+GROUP BY
+    p.category
+ORDER BY
+    category_revenue DESC;
 -- 1.4. Kunden über Durchschnittsausgaben
 -- 1.5. Marketingkanäle: Budget, Umsatz und ROI
