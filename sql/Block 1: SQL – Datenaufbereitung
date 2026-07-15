@@ -1,0 +1,25 @@
+-- Block 1: SQL – Datenaufbereitung
+-- 1.1. Umsatz, Bestellungen und Ø-Warenkorb nach Region und Jahr 
+
+SELECT
+    c.region,
+    o.order_year,
+    SUM(o.net_amount) AS total_revenue,
+    COUNT(DISTINCT o.order_id) AS total_orders,
+    AVG(o.net_amount) AS avg_order_value
+FROM shopsphere_orders o
+JOIN shopsphere_customers c
+    ON o.customer_id = c.customer_id
+GROUP BY
+    c.region,
+    o.order_year
+ORDER BY
+    c.region,
+    o.order_year;
+
+-- 1.2. Top-10 Kunden nach Ausgaben
+
+
+-- 1.3. Kategorien: Umsatz, Marge und Retouren
+-- 1.4. Kunden über Durchschnittsausgaben
+-- 1.5. Marketingkanäle: Budget, Umsatz und ROI
