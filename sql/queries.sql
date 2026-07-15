@@ -40,7 +40,7 @@ LIMIT 10;
 SELECT
     p.category,
     SUM(oi.line_total) AS category_revenue,
-    AVG(p.margin_pct) AS avg_margin,
+    AVG(p.margin_pct) / 100 AS avg_margin,
     AVG(o.is_returned) AS return_rate
 FROM shopsphere_order_items oi
 
@@ -54,5 +54,6 @@ GROUP BY
     p.category
 ORDER BY
     category_revenue DESC;
+
 -- 1.4. Kunden über Durchschnittsausgaben
 -- 1.5. Marketingkanäle: Budget, Umsatz und ROI
