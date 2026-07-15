@@ -3,19 +3,19 @@
 
 SELECT
     c.region,
-    o.order_year,
+    o.order_date,
     SUM(o.net_amount) AS total_revenue,
     COUNT(DISTINCT o.order_id) AS total_orders,
     AVG(o.net_amount) AS avg_order_value
 FROM shopsphere_orders o
-JOIN shopsphere_customers c
+LEFT JOIN shopsphere_customers c
     ON o.customer_id = c.customer_id
 GROUP BY
     c.region,
-    o.order_year
+    o.order_date
 ORDER BY
-    c.region,
-    o.order_year;
+    o.order_date,
+    c.region;
 
 -- 1.2. Top-10 Kunden nach Ausgaben
 
