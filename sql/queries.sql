@@ -56,4 +56,62 @@ ORDER BY
     category_revenue DESC;
 
 -- 1.4. Kunden über Durchschnittsausgaben
+SELECT
+    c.customer_id,
+    c.region,
+    c.country,
+    c.acquisition_chan,
+    customer_sales.total_spent
+FROM shopsphere_customers c
+JOIN
+(
+    SELECT
+        customer_id,
+        SUM(net_amount) AS total_spent
+    FROM shopsphere_orders
+    GROUP BY customer_id
+) AS customer_sales
+ON c.customer_id = customer_sales.customer_id
+
+WHERE customer_sales.total_spent >
+(
+    SELECT AVG(total_spent)
+    FROM
+    (
+        SELECT
+            customer_id,
+            SUM(net_amount) AS total_spent
+        FROM shopsphere_orders
+        GROUP BY customer_id
+    ) AS avg_sales
+)
+ORDER BY customer_sales.total_spent DESC;
+
 -- 1.5. Marketingkanäle: Budget, Umsatz und ROI
+
+SELECT
+    channel,
+    SUM(budget) AS total_budget,
+    SUM(impressions) AS total_impressions,
+    SUM(clicks) AS total_clicks,
+    SUM(conversions) AS total_conversions,
+    SUM(attributed_reven) AS total_revenue,
+    ROUND(
+        SUM(attributed_reven) * 1.0 / SUM(budget),
+        2
+    ) AS ROI,
+    ROUND(
+        SUM(clicks) * 1.00 / SUM(impressions),
+        4
+    ) AS ctr_percent,
+    ROUND(
+        SUM(conversions) * 1.0 / SUM(clicks),
+        4
+    ) AS conversion_rate_percent,
+    ROUND(
+        SUM(budget) * 1.0 / SUM(conversions),
+        2
+    ) AS cost_per_conversion
+FROM shopsphere_marketing
+GROUP BY channel
+ORDER BY ROI DESC;
