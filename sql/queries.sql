@@ -115,3 +115,37 @@ SELECT
 FROM shopsphere_marketing
 GROUP BY channel
 ORDER BY ROI DESC;
+
+
+-- 2.1 Pareto-Analyse: Top-Kunden
+
+WITH customer_revenue AS (
+    SELECT
+        c.customer_id,
+        c.region,
+        SUM(o.net_amount) AS total_revenue
+    FROM shopsphere_customers c
+    JOIN shopsphere_orders o
+        ON c.customer_id = o.customer_id
+    GROUP BY c.customer_id, c.region
+)
+SELECT
+    customer_id,
+    region,
+    total_revenue,
+    RANK() OVER (ORDER BY total_revenue DESC) AS customer_rank,
+    ROUND(
+        SUM(total_revenue) OVER (ORDER BY total_revenue DESC) * 1.0
+        / SUM(total_revenue) OVER (), 4
+    ) AS cumulative_revenue_percent,
+    ROUND(
+        RANK() OVER (ORDER BY total_revenue DESC) * 1.0
+        / COUNT(*) OVER (), 4
+    ) AS customer_percent,
+    CASE
+        WHEN RANK() OVER (ORDER BY total_revenue DESC) <= COUNT(*) OVER () * 0.05
+        THEN 'Top 5%'
+        ELSE 'Other'
+    END AS customer_group
+FROM customer_revenue
+ORDER BY customer_rank;
