@@ -149,3 +149,21 @@ SELECT
     END AS customer_group
 FROM customer_revenue
 ORDER BY customer_rank;
+
+-- 2.2 Einfluss von Kanal und Endgerät auf den durchschnittlichen Bestellwert
+
+SELECT
+    channel,
+    device,
+    COUNT(order_id) AS total_orders,
+    SUM(net_amount) AS total_revenue,
+    AVG(net_amount) AS avg_order_value,
+    AVG(discount_pct) AS avg_discount_pct,
+    ROUND(AVG(is_returned), 2) AS return_rate_percent
+FROM shopsphere_orders
+GROUP BY
+    channel,
+    device
+ORDER BY
+    channel,
+    avg_order_value DESC;
