@@ -174,3 +174,27 @@ ORDER BY
     c.region,
     o.channel,
     avg_order_value DESC;
+
+
+-- 2.3 Einfluss von Rabatten auf den Kundenwert
+WITH customer_stats AS (
+    SELECT
+        customer_id,
+        AVG(discount_pct) AS avg_discount,
+        COUNT(order_id) AS orders_count
+    FROM shopsphere_orders
+    GROUP BY customer_id
+)
+
+SELECT
+    CASE
+        WHEN avg_discount > 20 THEN 'Discount-oriented'
+        ELSE 'Regular'
+    END AS customer_group,
+
+    COUNT(customer_id) AS customers_count,
+    ROUND(AVG(orders_count), 2) AS avg_orders_per_customer,
+    MIN(orders_count) AS min_orders,
+    MAX(orders_count) AS max_orders
+FROM customer_stats
+GROUP BY customer_group;
