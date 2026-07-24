@@ -15,8 +15,10 @@ Der CEO wendet sich an das Analytics-Team:
 > Hat das Experiment mit dem neuen Checkout funktioniert?"
 
 Das Ziel der Analyse ist es, datenbasierte Antworten auf diese Fragen zu liefern und ein verständliches Analytics-Dashboard für strategische Entscheidungen zu erstellen.
-</details>
+
 ---
+</details>
+
 <details>
 <summary>📌 <b>Projekt</b></summary>
   
@@ -33,8 +35,9 @@ Im Rahmen der Analyse wurden folgende Bereiche untersucht:
 - Beitrag der wertvollsten Kunden;
 - Ergebnisse des A/B-Tests zum neuen Checkout-Design.
   
-</details>
 ---
+</details>
+
 <details>
 <summary>🗂️ <b>Datenquellen</b></summary>
 
