@@ -53,7 +53,8 @@ Verwendete Tabellen:
 | Processed Data | Ergebnisse der SQL-Abfragen und vorbereitete Tabellen für Analysen und Visualisierungen | [data1](data/data1/) |
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
-# 🗄️ Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
+<details>
+<summary>🗄️ <b>Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)</b></summary>
 
   
 In diesem Block wurde die Datenaufbereitung und erste Business-Analyse mit SQL durchgeführt.  
@@ -217,7 +218,11 @@ Die Ergebnisse ermöglichen einen direkten Vergleich der Effizienz verschiedener
 **Hinweis:**  
 Die SQL-Abfrage stellt die Basiskennzahlen für jeden Marketingkanal bereit. Die weitere Bewertung der Kanäle, das Ranking nach ROI sowie die Ableitung von Business Insights und Empfehlungen erfolgten anschließend in Tableau.
 
-# 📊  Block 2. Visualisierungen in Tableau
+</details>
+
+
+<details>
+<summary>📊 <b>Block 2. Visualisierungen in Tableau</b></summary> 
 
 ## 2.1. Saisonalität
 
