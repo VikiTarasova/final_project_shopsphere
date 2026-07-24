@@ -54,9 +54,10 @@ Verwendete Tabellen:
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
 <details>
-<summary>🗄️ <b>Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)</b></summary>
+<summary> <b></b></summary>
 
-  
+# 🗄️ Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
+
 In diesem Block wurde die Datenaufbereitung und erste Business-Analyse mit SQL durchgeführt.  
 Ziel war es, Daten aus verschiedenen Tabellen zusammenzuführen, zentrale Kennzahlen zu berechnen und Analyse-Datensätze für die spätere Visualisierung in Tableau vorzubereiten.
 
