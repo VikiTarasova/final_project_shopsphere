@@ -216,3 +216,22 @@ Die Ergebnisse ermöglichen einen direkten Vergleich der Effizienz verschiedener
 
 **Hinweis:**  
 Die SQL-Abfrage stellt die Basiskennzahlen für jeden Marketingkanal bereit. Die weitere Bewertung der Kanäle, das Ranking nach ROI sowie die Ableitung von Business Insights und Empfehlungen erfolgten anschließend in Tableau.
+
+# Block 2. Visualisierungen in Tableau
+
+## 2.1. Saisonalität
+
+Zur Analyse der Saisonalität wurde ein **Liniendiagramm des Gesamtumsatzes nach Monaten** für den Zeitraum **2022–2024** erstellt.
+
+Die Visualisierung zeigt die Umsatzentwicklung im Jahresverlauf und ermöglicht die Identifikation saisonaler Schwankungen.
+
+### Erkenntnisse
+
+Die Analyse des Liniendiagramms zeigt eine **deutliche Saisonalität**. Ab **Oktober** steigen die Umsätze kontinuierlich an, wobei der **höchste Umsatz im Dezember** erreicht wird. Dieses Muster lässt sich wahrscheinlich durch die erhöhte Kaufaktivität während der Feiertage sowie durch saisonale Marketingkampagnen erklären.
+
+### Business Insight
+
+Das Unternehmen sollte Lagerbestände, Marketingbudget und logistische Ressourcen frühzeitig auf die Hochsaison ausrichten. Die Analyse zeigt, dass das **4. Quartal die umsatzstärkste und profitabelste Periode für ShopSphere** ist und daher besonderes Potenzial für Umsatzwachstum bietet.
+
+> 📊 **Visualisierung:** *Monatlicher Gesamtumsatz (2022–2024)*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
