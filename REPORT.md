@@ -224,7 +224,8 @@ Die SQL-Abfrage stellt die Basiskennzahlen für jeden Marketingkanal bereit. Die
 
 <details>
 <summary>📊 <b>Block 2. Visualisierungen in Tableau</b></summary> 
-
+  
+# Block 2. Visualisierungen in Tableau
 ## 2.1. Saisonalität
 
 Zur Analyse der Saisonalität wurde ein **Liniendiagramm des Gesamtumsatzes nach Monaten** für den Zeitraum **2022–2024** erstellt.
@@ -427,6 +428,8 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 
 <details>
 <summary>🏢 <b>Block 3. CEO Dashboard</b></summary>
+  
+# Block 3. CEO Dashboard
 
 Für die finale Präsentation der Analyseergebnisse wurde ein **interaktives CEO Dashboard** erstellt.  
 Das Dashboard fasst die wichtigsten Business-Kennzahlen sowie die zentralen Erkenntnisse aus den vorherigen Analysephasen zusammen.
@@ -583,6 +586,8 @@ Gezielte Investitionen in diese Bereiche können langfristiges profitables Wachs
 
 <details>
 <summary>🎯 <b>Block 4. Strategische Business Cases</b></summary>
+  
+# Block 4. Strategische Business Cases
 
 ## Case A. Wohin sollte das Marketingbudget investiert werden?
 
@@ -728,8 +733,11 @@ Ziel der Analyse war es zu bewerten, ob hohe Rabatte langfristige Kundenbindung 
 Hohe Rabatte fördern kurzfristig den Erstkauf, tragen jedoch nur begrenzt zur langfristigen Kundenbindung bei.
 
 Den größten Unternehmenswert schafft eine vergleichsweise kleine Gruppe besonders wertvoller Kunden. Eine nachhaltige Wachstumsstrategie sollte daher nicht nur auf die Neukundengewinnung, sondern insbesondere auf die **Bindung und Weiterentwicklung der profitabelsten Kundensegmente** durch personalisierte Maßnahmen und Loyalty-Programme ausgerichtet sein.  
+</details>
 
-
+<details>
+<summary>🧪 <b>Block 5. Statistisches Denken: A/B-Experiment</b></summary>
+  
 # 🧪 Block 5. Statistisches Denken: A/B-Experiment
 
 ## Analyse des Checkout-Experiments
@@ -831,7 +839,10 @@ Hohe Rabatte fördern kurzfristig den Erstkauf, tragen jedoch nur begrenzt zur l
 Den größten Unternehmenswert schafft eine vergleichsweise kleine Gruppe besonders wertvoller Kunden. Eine nachhaltige Wachstumsstrategie sollte daher nicht nur auf die Neukundengewinnung, sondern insbesondere auf die **Bindung und Weiterentwicklung der profitabelsten Kundensegmente** durch personalisierte Maßnahmen und Loyalty-Programme ausgerichtet sein.
 
 
+</details>
 
+<details>
+<summary>🎯 <b>Empfehlungen für den CEO</b></summary>
 # 🎯 Empfehlungen für den CEO
 
 Basierend auf den Ergebnissen der SQL-Analyse, Tableau-Visualisierungen und strategischen Business Cases wurden folgende Handlungsempfehlungen abgeleitet:
@@ -925,3 +936,4 @@ Die Analyse zeigt, dass nachhaltiges Wachstum nicht ausschließlich durch höher
 - datenbasierten Produktentscheidungen.
 
 Durch die Umsetzung dieser Maßnahmen kann ShopSphere die Marketingeffizienz steigern, profitable Segmente ausbauen und langfristig nachhaltiges Wachstum sichern.
+</details>
