@@ -359,3 +359,47 @@ Gleichzeitig bietet das breite Kundensegment der übrigen **95 %** erhebliches E
 
 > 📊 **Visualisierung:** *Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+
+## 2.6. Einfluss von Marketingkanal und Gerät auf den durchschnittlichen Bestellwert
+
+Als zusätzliche Analyse wurde der **Einfluss von Marketingkanal und Endgerät auf den durchschnittlichen Bestellwert (Average Order Value)** untersucht.
+
+Die Visualisierung kombiniert **Marketingkanal**, **Gerätetyp**, **durchschnittlichen Bestellwert**, **Umsatz** und **Retourenquote**, um besonders profitable Kombinationen sowie Optimierungspotenziale zu identifizieren.
+
+### Erkenntnisse
+
+**Mobile** generiert über alle Marketingkanäle hinweg den höchsten Umsatz:
+
+- **Organic** – **454 Tsd. €**
+- **Paid Search** – **372 Tsd. €**
+- **Social Ads** – **356 Tsd. €**
+
+Damit ist Mobile der wichtigste Umsatztreiber und bietet das größte Potenzial für zukünftige Marketinginvestitionen.
+
+Die höchsten durchschnittlichen Bestellwerte wurden erzielt durch:
+
+- **Influencer + Tablet** – **0,35 Tsd. €**
+- **Email + Desktop** – **0,33 Tsd. €**
+- **Paid Search + Tablet** – **0,32 Tsd. €**
+
+Diese Kombinationen eignen sich besonders für die Vermarktung hochwertiger oder margenstarker Produkte.
+
+Die effizienteste Kombination ist:
+
+- **Paid Search + Tablet**
+  - Ø Bestellwert: **0,32 Tsd. €**
+  - Retourenquote: **6 %**
+
+Die höchsten Retourenquoten wurden festgestellt bei:
+
+- **Referral + Tablet** – **14 %**
+- **Email + Desktop / Tablet** – **12 %**
+
+Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegründen genauer untersucht werden.
+
+### Business Insight
+
+**Mobile** sollte weiterhin als wichtigster Umsatzkanal im Fokus der Marketingstrategie stehen. Gleichzeitig bieten **Tablet- und Desktop-Nutzer** aufgrund ihres höheren durchschnittlichen Bestellwerts Potenzial für Premium-Produkte und gezielte Cross- bzw. Up-Selling-Kampagnen. Besonders erfolgreiche Kombinationen wie **Paid Search + Tablet** können als Best Practice für zukünftige Marketingmaßnahmen dienen, während Segmente mit hohen Retourenquoten gezielt optimiert werden sollten.
+
+> 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
