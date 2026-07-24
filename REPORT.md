@@ -258,3 +258,44 @@ Die Ergebnisse zeigen Optimierungspotenzial bei der Budgetverteilung. Eine stär
 
 > 📊 **Visualisierung:** *Marketingbudget vs. ROI nach Marketingkanal*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+
+## 2.3. Produktkategorien: Umsatz vs. Profitabilität
+
+Zur Bewertung der Wirtschaftlichkeit der Produktkategorien wurde ein **Scatter-/Bubble-Chart** erstellt. Dabei stellt die **X-Achse den Umsatz**, die **Y-Achse die durchschnittliche Marge** dar, während die **Größe der Blasen die Retourenquote** repräsentiert.
+
+Die Visualisierung ermöglicht die Identifikation besonders profitabler Kategorien sowie von Kategorien mit Optimierungspotenzial.
+
+### Erkenntnisse
+
+#### Hidden Champions
+
+**Beauty**
+- Höchste Marge (**55 %**) bei gleichzeitig niedriger Retourenquote (**10,4 %**).
+- Bietet großes Potenzial für Skalierung und zusätzliche Marketinginvestitionen.
+
+**Sports**
+- Gute Balance zwischen Umsatz (**343 Tsd. €**), Marge (**30 %**) und niedriger Retourenquote (**8,6 %**).
+- Zeigt weiteres Wachstumspotenzial.
+
+**Home & Kitchen**
+- Sehr gute Kombination aus hohem Umsatz und Profitabilität.
+- **35 % Marge** bei einer niedrigen Retourenquote (**10,3 %**).
+- Kann sich zu einem der wichtigsten Wachstumstreiber entwickeln.
+
+#### Kategorien mit Optimierungspotenzial
+
+**Electronics**
+- Höchster Umsatz aller Kategorien.
+- Gleichzeitig die niedrigste Marge (**12 %**) und eine hohe Retourenquote (**15,6 %**).
+- Optimierung der Preisstrategie, Einkaufskonditionen und Produktqualität empfehlenswert.
+
+**Clothing**
+- Hohe Marge (**45 %**), jedoch die höchste Retourenquote (**16,1 %**).
+- Mögliche Ursachen sind Größenprobleme, ungenaue Produktbeschreibungen oder abweichende Kundenerwartungen.
+
+### Business Insight
+
+Die Kategorien **Beauty**, **Sports** und **Home & Kitchen** können als **„Hidden Champions“** bezeichnet werden. Sie kombinieren überdurchschnittliche Margen mit vergleichsweise niedrigen Retourenquoten und bieten das größte Potenzial für profitables Wachstum. **Electronics** erzielt zwar den höchsten Umsatz, weist aufgrund der geringen Marge und hohen Retouren jedoch die niedrigste Profitabilität auf und sollte daher gezielt optimiert werden.
+
+> 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
