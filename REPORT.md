@@ -53,3 +53,11 @@ SQL-Abfragen für die Analyse:
 Ausgangsdaten als CSV-Dateien:
 
 ➡️ [data2](data2/)
+
+## 📁 Repository Structure
+
+| Bereich | Beschreibung | Link |
+|---|---|---|
+| SQL | Analyse-Abfragen und Berechnungen | [queries.sql](sql/queries.sql) |
+| Data | Rohdaten im CSV-Format | [data](data/) |
+| Report | Business Insights und Ergebnisse | [REPORT.md](REPORT.md) |
