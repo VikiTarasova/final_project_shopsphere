@@ -405,3 +405,152 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
 
 # Block 3. CEO Dashboard
+
+Für die finale Präsentation der Analyseergebnisse wurde ein **interaktives CEO Dashboard** erstellt.  
+Das Dashboard fasst die wichtigsten Business-Kennzahlen sowie die zentralen Erkenntnisse aus den vorherigen Analysephasen zusammen.
+
+Ziel des Dashboards ist es, dem Management einen schnellen und strukturierten Überblick über den aktuellen Geschäftszustand zu geben:
+
+- Welche Faktoren treiben den Umsatz?
+- Welche Bereiche entwickeln sich positiv?
+- Wo bestehen Optimierungspotenziale?
+
+> 📊 **Tableau Dashboard:**  
+> *(Link zu Tableau Public hier einfügen)*
+
+---
+
+## Struktur des Dashboards
+
+### KPI-Übersicht
+
+Der obere Bereich des Dashboards zeigt die wichtigsten Kennzahlen für einen schnellen Management-Überblick:
+
+- Gesamtumsatz
+- Anzahl der Bestellungen
+- Durchschnittlicher Bestellwert
+- Retourenquote
+- Anzahl der Kunden
+- Durchschnittliche Marge
+
+Diese KPIs ermöglichen eine schnelle Bewertung der aktuellen Geschäftsentwicklung.
+
+---
+
+## Zentrale Analysebereiche
+
+### Umsatztrend & Saisonalität
+
+Analyse der Umsatzentwicklung über den gesamten Zeitraum.
+
+**Ziel:**
+- Identifikation saisonaler Schwankungen;
+- Erkennen von Umsatzspitzen;
+- Planung von Marketing- und operativen Ressourcen.
+
+---
+
+### Marketingkanäle: Budget, Umsatz und ROI
+
+Bewertung der Performance verschiedener Marketingkanäle.
+
+**Ziel:**
+- Vergleich von Investitionen und Ergebnissen;
+- Identifikation besonders effizienter Kanäle;
+- Optimierung der Budgetverteilung.
+
+---
+
+### Top-3 Kategorien nach Marge
+
+Analyse der profitabelsten Produktkategorien.
+
+**Ziel:**
+- Identifikation margenstarker Wachstumsbereiche;
+- Unterstützung strategischer Entscheidungen im Produktportfolio.
+
+---
+
+### Umsatzentwicklung nach Regionen
+
+Analyse der regionalen Umsatzentwicklung über die Zeit.
+
+**Ziel:**
+- Erkennen wachsender Märkte;
+- Identifikation von Regionen mit weiterem Entwicklungspotenzial.
+
+---
+
+### Pareto-Analyse: Top-5%-Kunden
+
+Analyse des Umsatzbeitrags der wertvollsten Kundengruppe.
+
+**Ziel:**
+- Verständnis der Umsatzkonzentration;
+- Entwicklung gezielter Kundenbindungsmaßnahmen.
+
+---
+
+# Aufbau-Logik des Dashboards
+
+Das Dashboard folgt einer **Management-Story von oben nach unten**:
+
+## 1. Aktueller Geschäftsstatus – „Wie entwickelt sich das Unternehmen?“
+
+Die KPI-Karten liefern einen schnellen Überblick über:
+
+- Umsatzentwicklung;
+- Kundenbasis;
+- Profitabilität;
+- Verkaufsqualität.
+
+---
+
+## 2. Umsatztreiber – „Welche Faktoren beeinflussen die Ergebnisse?“
+
+Die Analysebereiche zeigen, welche Faktoren das Geschäftswachstum bestimmen:
+
+- saisonale Trends;
+- Marketingeffizienz;
+- profitable Kategorien;
+- regionale Entwicklung.
+
+---
+
+## 3. Strategischer Fokus – „Wo sollte investiert werden?“
+
+Die Kombination aus Marketing-, Kategorie-, Regionen- und Kundenanalyse zeigt konkrete Bereiche für zukünftige Maßnahmen:
+
+- effiziente Marketingkanäle ausbauen;
+- profitable Produktbereiche stärken;
+- Wachstumsmärkte entwickeln;
+- wertvolle Kunden langfristig binden.
+
+---
+
+# Wichtigste Erkenntnisse für das Management
+
+## 1. Das Geschäft zeigt eine klare Saisonalität
+
+Der höchste Umsatz wird im **4. Quartal**, insbesondere im **Dezember**, erzielt.  
+Marketingaktivitäten, Lagerbestände und operative Ressourcen sollten frühzeitig auf die Hochsaison vorbereitet werden.
+
+---
+
+## 2. Höheres Marketingbudget bedeutet nicht automatisch höhere Effizienz
+
+Die Analyse zeigt, dass Kanäle mit den größten Investitionen nicht zwingend den höchsten ROI erzielen.
+
+Eine gezielte Anpassung der Budgetverteilung kann die Marketingeffizienz verbessern.
+
+---
+
+## 3. Wachstum wird durch bestimmte Segmente getragen
+
+Das größte Entwicklungspotenzial liegt in:
+
+- wachstumsstarken Regionen;
+- profitablen Produktkategorien;
+- wertvollen Kundensegmenten.
+
+Gezielte Investitionen in diese Bereiche können langfristiges profitables Wachstum unterstützen.
