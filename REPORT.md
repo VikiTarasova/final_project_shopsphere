@@ -421,7 +421,11 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
 <img width="679" height="378" alt="image" src="https://github.com/user-attachments/assets/a2ab81c0-d935-498d-819b-f431e0390915" />
 
-# 🏢 Block 3. CEO Dashboard
+</details>
+
+
+<details>
+<summary>🏢 <b>Block 3. CEO Dashboard</b></summary>
 
 Für die finale Präsentation der Analyseergebnisse wurde ein **interaktives CEO Dashboard** erstellt.  
 Das Dashboard fasst die wichtigsten Business-Kennzahlen sowie die zentralen Erkenntnisse aus den vorherigen Analysephasen zusammen.
@@ -573,7 +577,11 @@ Das größte Entwicklungspotenzial liegt in:
 
 Gezielte Investitionen in diese Bereiche können langfristiges profitables Wachstum unterstützen.
 
-# 🎯 Block 4. Strategische Business Cases
+</details>
+
+
+<details>
+<summary>🎯 <b>Block 4. Strategische Business Cases</b></summary>
 
 ## Case A. Wohin sollte das Marketingbudget investiert werden?
 
