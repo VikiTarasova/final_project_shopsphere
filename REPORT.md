@@ -1,7 +1,6 @@
 # 📊 ShopSphere: Analyse eines globalen Marktplatzes
 
 ## 🎯 Business-Anforderung
-<img width="680" height="383" alt="image" src="https://github.com/user-attachments/assets/9db6830f-5b54-4f6f-88a5-5c8965e65163" />
 
 Der CEO wendet sich an das Analytics-Team:
 
@@ -418,6 +417,7 @@ Ziel des Dashboards ist es, dem Management einen schnellen und strukturierten Ü
 
 > 📊 **Tableau Dashboard:**  
 > *(Link zu Tableau Public hier einfügen)*
+<img width="680" height="383" alt="image" src="https://github.com/user-attachments/assets/4c674c74-4f8f-4678-8faa-68938f3138b4" />
 
 ---
 
