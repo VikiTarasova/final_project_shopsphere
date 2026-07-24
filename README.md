@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/hea
 https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_orders.csv 
 
 - `shopsphere_order_items`
-|https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_order_items.csv
+https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_order_items.csv
 
 - `shopsphere_marketing`
 https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_marketing.csv 
