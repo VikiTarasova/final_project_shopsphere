@@ -235,7 +235,7 @@ Das Unternehmen sollte Lagerbestände, Marketingbudget und logistische Ressource
 
 > 📊 **Visualisierung:** *Monatlicher Gesamtumsatz (2022–2024)*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
-> <img width="584" height="383" alt="image" src="https://github.com/user-attachments/assets/13eef798-f285-4d92-b2a9-46946a356f71" />
+ <img width="584" height="383" alt="image" src="https://github.com/user-attachments/assets/13eef798-f285-4d92-b2a9-46946a356f71" />
 
 
 ## 2.2. Marketing: Budget vs. ROI
@@ -260,6 +260,8 @@ Die Ergebnisse zeigen Optimierungspotenzial bei der Budgetverteilung. Eine stär
 
 > 📊 **Visualisierung:** *Marketingbudget vs. ROI nach Marketingkanal*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+<img width="221" height="253" alt="image" src="https://github.com/user-attachments/assets/ec5642f8-2468-4ceb-bd29-c37d57c00671" />
+
 
 ## 2.3. Produktkategorien: Umsatz vs. Profitabilität
 
@@ -301,6 +303,9 @@ Die Kategorien **Beauty**, **Sports** und **Home & Kitchen** können als **„Hi
 
 > 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+<img width="681" height="377" alt="image" src="https://github.com/user-attachments/assets/5c79e00c-b9ec-4b85-b7c8-8a114d6b408e" />
+<img width="218" height="347" alt="image" src="https://github.com/user-attachments/assets/8f06ce84-5b4b-4f6c-950b-0b7463e39ea8" />
+
 
 ## 2.4. Umsatzentwicklung nach Regionen
 
@@ -339,6 +344,8 @@ Die Visualisierung zeigt die Umsatzentwicklung der einzelnen Regionen und ermög
 
 > 📊 **Visualisierung:** *Umsatzentwicklung nach Regionen (2022–2024)*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+<img width="230" height="348" alt="image" src="https://github.com/user-attachments/assets/ea957076-0699-470a-8718-80eba09dc80c" />
+
 
 ## 2.5. Kundenbeitrag (Pareto-Analyse)
 
@@ -361,6 +368,8 @@ Gleichzeitig bietet das breite Kundensegment der übrigen **95 %** erhebliches E
 
 > 📊 **Visualisierung:** *Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+<img width="608" height="350" alt="image" src="https://github.com/user-attachments/assets/df3fe9a2-4c05-41cd-9b1a-02e6766e398b" />
+
 
 ## 2.6. Einfluss von Marketingkanal und Gerät auf den durchschnittlichen Bestellwert
 
@@ -405,6 +414,7 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 
 > 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+<img width="679" height="378" alt="image" src="https://github.com/user-attachments/assets/a2ab81c0-d935-498d-819b-f431e0390915" />
 
 # 🏢 Block 3. CEO Dashboard
 
