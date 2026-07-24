@@ -47,14 +47,6 @@ Verwendete Tabellen:
 
 | Bereich | Beschreibung | Link |
 |---|---|---|
-| SQL | Analyse-Abfragen und Berechnungen | [queries.sql](sql/queries.sql) |
-| Data | Rohdaten im CSV-Format | [data](data/) |
-| Report | Business Insights und Ergebnisse | [REPORT.md](REPORT.md) |
-
-## 📁 Repository Structure
-
-| Bereich | Beschreibung | Link |
-|---|---|---|
 | README | Projektbeschreibung, Zielsetzung und Übersicht | [README.md](README.md) |
 | SQL | Analyse-Abfragen und Berechnungen | [queries.sql](sql/queries.sql) |
 | Data | Rohdaten aus dem ShopSphere-Datensatz (Original-CSV-Tabellen) | [data](data/) |
