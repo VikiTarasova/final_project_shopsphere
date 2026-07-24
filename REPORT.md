@@ -299,8 +299,8 @@ Die Kategorien **Beauty**, **Sports** und **Home & Kitchen** können als **„Hi
 
 > 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
->
-> ## 2.4. Umsatzentwicklung nach Regionen
+
+## 2.4. Umsatzentwicklung nach Regionen
 
 Zur Analyse der regionalen Entwicklung wurde ein **Multi-Line-Chart** erstellt, das den **Gesamtumsatz nach Regionen** im Zeitraum **2022–2024** darstellt.
 
