@@ -42,17 +42,6 @@ Verwendete Tabellen:
 | `shopsphere_order_items` | Details zu einzelnen Bestellpositionen |
 | `shopsphere_marketing` | Marketingausgaben und Performance der Kanäle |
 
-Vollständige Beschreibung der Datenstruktur:
-
-➡️ [README.md](README.md)
-
-SQL-Abfragen für die Analyse:
-
-➡️ [queries.sql](queries.sql)
-
-Ausgangsdaten als CSV-Dateien:
-
-➡️ [data2](data2/)
 
 ## 📁 Repository Structure
 
