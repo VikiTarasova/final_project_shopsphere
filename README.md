@@ -84,3 +84,29 @@ Es wurden 6 zentrale Visualisierungen erstellt:
 ## 5. Customer Pareto Analysis  
 ## 6. Device & Channel Analysis
 
+**Link:**  
+Tableau Public: **(Link hinzufügen)**
+
+# 🧪 A/B-Test: Checkout-Experiment
+
+**Testzeitraum:**  
+ab dem 1. Juni 2024
+
+**Verglichen wurden:**
+
+- **Variante A** — alter Checkout
+- **Variante B** — neuer Checkout
+
+---
+
+# 💡 Zentrale Business-Erkenntnisse
+
+1. Marketingbudget stärker auf **Organic, Influencer und Referral** ausrichten.
+
+2. **Beauty** als profitabelste Kategorie weiter ausbauen.
+
+3. **Electronics** aufgrund der niedrigen Marge und der hohen Retourenquote optimieren.
+
+4. Fokus auf die **Bindung der Top-5%-Kunden** legen.
+
+5. Den neuen Checkout schrittweise einführen, beginnend mit **Neukunden**.
