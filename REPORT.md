@@ -124,6 +124,7 @@ Die zusätzliche Gruppierung nach Jahren sowie die Analyse der Jahresentwicklung
 
 
 ---
+#🗄️ Block 1. SQL: Datenaufbereitung
 
 ## 1.2. Top-10 Kunden nach Ausgaben
 
@@ -217,7 +218,7 @@ Die Ergebnisse ermöglichen einen direkten Vergleich der Effizienz verschiedener
 **Hinweis:**  
 Die SQL-Abfrage stellt die Basiskennzahlen für jeden Marketingkanal bereit. Die weitere Bewertung der Kanäle, das Ranking nach ROI sowie die Ableitung von Business Insights und Empfehlungen erfolgten anschließend in Tableau.
 
-# Block 2. Visualisierungen in Tableau
+# 📊  Block 2. Visualisierungen in Tableau
 
 ## 2.1. Saisonalität
 
@@ -404,7 +405,7 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 > 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
 
-# Block 3. CEO Dashboard
+# 🏢 Block 3. CEO Dashboard
 
 Für die finale Präsentation der Analyseergebnisse wurde ein **interaktives CEO Dashboard** erstellt.  
 Das Dashboard fasst die wichtigsten Business-Kennzahlen sowie die zentralen Erkenntnisse aus den vorherigen Analysephasen zusammen.
