@@ -299,3 +299,41 @@ Die Kategorien **Beauty**, **Sports** und **Home & Kitchen** können als **„Hi
 
 > 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+>
+> ## 2.4. Umsatzentwicklung nach Regionen
+
+Zur Analyse der regionalen Entwicklung wurde ein **Multi-Line-Chart** erstellt, das den **Gesamtumsatz nach Regionen** im Zeitraum **2022–2024** darstellt.
+
+Die Visualisierung zeigt die Umsatzentwicklung der einzelnen Regionen und ermöglicht den Vergleich von Wachstumstrends sowie die Identifikation besonders dynamischer oder stagnierender Märkte.
+
+### Erkenntnisse
+
+**Southeast Asia**
+- Zeigt das stärkste Wachstum aller Regionen.
+- Der Umsatz stieg von **12,7 Tsd. € (2022)** auf **613,9 Tsd. € (2024)**.
+- Der hohe durchschnittliche Bestellwert (**303 €**) und das starke Umsatzwachstum weisen auf ein erhebliches Entwicklungspotenzial hin.
+
+**North America**
+- Umsatzstärkste Region im Jahr **2024** mit **718,7 Tsd. €**.
+- Deutliches Wachstum gegenüber **80,2 Tsd. €** im Jahr 2022.
+- Bleibt einer der wichtigsten Wachstumstreiber des Unternehmens.
+
+**Europe**
+- Stetige und stabile Umsatzentwicklung.
+- Umsatzanstieg von **100,8 Tsd. € (2022)** auf **545,6 Tsd. € (2024)**.
+- Bildet eine verlässliche Grundlage für das Geschäft.
+
+**Latin America**
+- Starkes Wachstum von **12,1 Tsd. € (2022)** auf **321,4 Tsd. € (2024)**.
+- Bietet gutes Skalierungspotenzial, liegt jedoch weiterhin hinter den umsatzstärksten Regionen.
+
+**Middle East**
+- Positive Entwicklung mit **281,1 Tsd. € Umsatz** im Jahr 2024.
+- Bleibt jedoch die kleinste Region und verfügt über weiteres Wachstumspotenzial.
+
+### Business Insight
+
+**North America** ist der wichtigste Umsatzmarkt des Unternehmens, während **Southeast Asia** die höchste Wachstumsdynamik und das größte Entwicklungspotenzial aufweist. **Europe** sorgt für stabile Umsätze, **Latin America** entwickelt sich kontinuierlich weiter und **Middle East** könnte durch gezielte Marketing- und Vertriebsmaßnahmen zusätzliches Wachstum erzielen.
+
+> 📊 **Visualisierung:** *Umsatzentwicklung nach Regionen (2022–2024)*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
