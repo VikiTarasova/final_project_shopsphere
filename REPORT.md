@@ -144,9 +144,8 @@ Durch:
 
 ```sql```
 
-```ORDER BY total_spent DESC ```
-
-LIMIT 10 
+```ORDER BY total_spent DESC``` 
+```LIMIT 10```
 
 ## 1.3. Kategorien: Umsatz, Marge und Retouren
 
