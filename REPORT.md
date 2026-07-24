@@ -403,3 +403,5 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 
 > 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+
+# Block 3. CEO Dashboard
