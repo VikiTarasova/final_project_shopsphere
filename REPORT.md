@@ -98,7 +98,7 @@ Verwendete SQL-Techniken:
 Der vollständige SQL-Code mit allen Abfragen:
 
 📂 **SQL — Analyse-Abfragen und Berechnungen:**  
-[queries.sql](../sql/queries.sql)
+ [queries.sql](sql/queries.sql)
 
 
 ---
