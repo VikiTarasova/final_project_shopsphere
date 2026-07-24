@@ -1,3 +1,6 @@
+<details>
+<summary>📊 <b>ShopSphere: Analyse eines globalen Marktplatzes</b></summary>
+
 # 📊 ShopSphere: Analyse eines globalen Marktplatzes
 
 ## 🎯 Business-Anforderung
@@ -12,9 +15,11 @@ Der CEO wendet sich an das Analytics-Team:
 > Hat das Experiment mit dem neuen Checkout funktioniert?"
 
 Das Ziel der Analyse ist es, datenbasierte Antworten auf diese Fragen zu liefern und ein verständliches Analytics-Dashboard für strategische Entscheidungen zu erstellen.
-
+</details>
 ---
-
+<details>
+<summary>📌 <b>Projekt</b></summary>
+  
 # 📌 Projekt
 
 **ShopSphere** ist ein globaler Marktplatz, der Produkte in verschiedenen Kategorien und Regionen verkauft.
@@ -27,8 +32,11 @@ Im Rahmen der Analyse wurden folgende Bereiche untersucht:
 - regionale Umsatzentwicklung;
 - Beitrag der wertvollsten Kunden;
 - Ergebnisse des A/B-Tests zum neuen Checkout-Design.
-
+  
+</details>
 ---
+<details>
+<summary>🗂️ <b>Datenquellen</b></summary>
 
 # 🗂️ Datenquellen
 
@@ -52,6 +60,8 @@ Verwendete Tabellen:
 | Data | Rohdaten aus dem ShopSphere-Datensatz (Original-CSV-Tabellen) | [data](data/) |
 | Processed Data | Ergebnisse der SQL-Abfragen und vorbereitete Tabellen für Analysen und Visualisierungen | [data1](data/data1/) |
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
+
+</details>
 
 <details>
 <summary>🗄️ <b>Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)</b></summary>
