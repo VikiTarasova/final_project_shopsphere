@@ -198,3 +198,33 @@ SELECT
     MAX(orders_count) AS max_orders
 FROM customer_stats
 GROUP BY customer_group;
+
+-- 2.4 A/B-Test: Ø Bestellwert – Neukunden vs. Bestandskunden
+
+WITH first_order AS
+(
+    SELECT
+        customer_id,
+        MIN(order_date) AS first_order_date
+    FROM shopsphere_orders
+    GROUP BY customer_id
+)
+SELECT
+    o.order_id,
+    o.customer_id,
+    o.order_date,
+    o.ab_variant,
+    o.net_amount,
+    c.signup_date,
+    CASE
+        WHEN o.order_date = f.first_order_date
+             AND julianday(o.order_date) - julianday(c.signup_date) <= 60
+        THEN 'New'
+        ELSE 'Returning'
+    END AS customer_type
+FROM shopsphere_orders o
+JOIN shopsphere_customers c ON o.customer_id = c.customer_id
+JOIN first_order f ON o.customer_id = f.customer_id
+WHERE
+    o.ab_variant IN ('A','B')
+    AND o.order_date >= '2024-06-01';
