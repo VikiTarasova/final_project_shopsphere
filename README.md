@@ -26,8 +26,7 @@ Im Projekt wurde der vollständige Analyseprozess durchgeführt:
 
 Die Daten sind in 5 miteinander verbundenen Tabellen organisiert:
 
-| Tabelle | Beschreibung |
-|---------|--------------|
+
 | customers | Kundendaten (Kunden-ID, Region, Akquisitionskanal, Registrierungsdatum) | https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_customers.csv 
 
 | products | Produktkatalog (Produkt-ID, Kategorie, Preis, Marge) |
