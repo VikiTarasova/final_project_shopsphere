@@ -625,3 +625,92 @@ Ziel der Analyse war es, Marketingkanäle zu identifizieren, die sowohl kurzfris
 Eine nachhaltige Marketingstrategie sollte **ROI und Customer Lifetime Value gemeinsam** berücksichtigen.
 
 Während der ROI die kurzfristige Rentabilität der Marketingmaßnahmen bewertet, zeigt der LTV den langfristigen wirtschaftlichen Wert der gewonnenen Kunden. Die Kombination beider Kennzahlen ermöglicht eine effizientere Budgetverteilung und unterstützt ein profitables sowie nachhaltiges Unternehmenswachstum.
+
+## Case B. Welche Produktkategorien sind wirklich profitabel?
+<img width="316" height="110" alt="image" src="https://github.com/user-attachments/assets/e9c94cba-eed2-4b82-bee9-ef01350e840c" />
+
+Zur Bewertung der Profitabilität der Produktkategorien wurde eine vergleichende Analyse anhand von drei zentralen Kennzahlen durchgeführt:
+
+- **Umsatz**
+- **durchschnittliche Marge**
+- **Retourenquote**
+
+Ziel der Analyse war es, Produktkategorien mit dem größten Gewinnpotenzial zu identifizieren und Bereiche mit Optimierungsbedarf aufzudecken.
+
+---
+
+## 🔎 Erkenntnisse
+
+- **Electronics** erzeugt eine **„Illusion des Umsatzvolumens“**. Mit **2,10 Mio. USD Umsatz** ist diese Kategorie zwar umsatzstärkster Bereich, weist jedoch die **niedrigste durchschnittliche Marge (12 %)** sowie eine der höchsten **Retourenquoten (15,6 %)** auf. Hohe Verkaufszahlen führen daher nicht automatisch zu hoher Profitabilität.
+
+- **Beauty** ist die profitabelste Kategorie. Trotz eines vergleichsweise geringen Umsatzes von **168,6 Tsd. USD** erzielt sie die **höchste Marge (55 %)** bei einer moderaten **Retourenquote (10,4 %)**.
+
+- **Sports** und **Toys** zeigen ebenfalls eine ausgewogene Kombination aus Marge und niedriger Retourenquote und leisten damit einen stabilen Beitrag zur Profitabilität.
+
+---
+
+## 💎 Hidden Champion
+
+Die Kategorie **Beauty** kann als **„Hidden Champion“** bezeichnet werden.
+
+Obwohl sie nur einen vergleichsweise kleinen Umsatz erzielt, kombiniert sie die höchste Marge mit einer niedrigen Retourenquote und bietet damit das größte Potenzial für profitables Wachstum.
+
+---
+
+## 💡 Business-Empfehlungen
+
+- Marketinginvestitionen für die Kategorie **Beauty** erhöhen und das Produktsortiment gezielt ausbauen.
+- Die Verkaufsstrategie für **Electronics** optimieren, insbesondere durch Maßnahmen zur Margensteigerung und Reduzierung der Retourenquote.
+- Die Entwicklung der Kategorien **Sports** und **Toys** weiter fördern, da sie stabile und profitable Ergebnisse liefern.
+
+---
+
+## 📌 Fazit
+
+Die Bewertung von Produktkategorien ausschließlich anhand des Umsatzes reicht für fundierte Geschäftsentscheidungen nicht aus.
+
+Erst die gemeinsame Analyse von **Umsatz**, **Marge** und **Retourenquote** ermöglicht eine realistische Beurteilung der Wirtschaftlichkeit. Dadurch lassen sich sowohl umsatzstarke, aber wenig profitable Kategorien als auch besonders attraktive Investitionsmöglichkeiten identifizieren.
+
+## Case C. Rabatte und wertvolle Kunden
+
+Zur Beantwortung dieser Fragestellung wurde der Einfluss von **Rabatten auf das Kaufverhalten** sowie der **Umsatzbeitrag der wertvollsten Kunden** analysiert.
+
+Ziel der Analyse war es zu bewerten, ob hohe Rabatte langfristige Kundenbindung fördern und welche Kundensegmente den größten Beitrag zum Unternehmenserfolg leisten.
+
+---
+
+## 🔎 Erkenntnisse
+<img width="241" height="109" alt="image" src="https://github.com/user-attachments/assets/2646183b-86ab-4f2f-af64-b03247407c83" />
+
+- Kunden, deren durchschnittlicher Rabatt **über 20 %** liegt, tätigen im Durchschnitt lediglich **2,17 Bestellungen**, während alle übrigen Kunden durchschnittlich **4,35 Bestellungen** aufgeben.
+
+- Dies deutet darauf hin, dass hohe Rabatte vor allem **Einmalkäufe fördern**, jedoch nur begrenzt zur langfristigen Kundenbindung beitragen.
+
+- Die **Top 5 % der Kunden** erwirtschaften einen erheblichen Anteil des Gesamtumsatzes und stellen damit das wertvollste Kundensegment des Unternehmens dar.
+
+- Den größten Beitrag innerhalb dieser Kundengruppe leisten die Marketingkanäle:
+  - **Influencer** – **28,25 %**
+  - **Organic** – **24,29 %**
+  - **Referral** – **16,28 %**
+
+- Die wertvollsten Kunden stammen überwiegend aus den Regionen **Europe**, **North America** und **Southeast Asia**.
+<img width="554" height="193" alt="image" src="https://github.com/user-attachments/assets/ed0d062d-45b9-4bab-ac40-f3cebc2623db" /> <img width="134" height="88" alt="image" src="https://github.com/user-attachments/assets/00aa94c2-084c-45c5-b282-5e4592e28f01" />
+
+
+---
+
+## 💡 Business-Empfehlungen
+
+- Hohe Rabatte gezielt zur **Neukundengewinnung** einsetzen und nicht als primäres Instrument der Kundenbindung nutzen.
+
+- Zur Steigerung der Wiederkaufsrate verstärkt in **Loyalitätsprogramme**, **personalisierte Angebote** und **CRM-Kommunikation** investieren.
+
+- Marketingbudgets verstärkt auf die Kanäle **Influencer**, **Organic** und **Referral** ausrichten, da diese die profitabelsten Kunden gewinnen.
+
+---
+
+## 📌 Fazit
+
+Hohe Rabatte fördern kurzfristig den Erstkauf, tragen jedoch nur begrenzt zur langfristigen Kundenbindung bei.
+
+Den größten Unternehmenswert schafft eine vergleichsweise kleine Gruppe besonders wertvoller Kunden. Eine nachhaltige Wachstumsstrategie sollte daher nicht nur auf die Neukundengewinnung, sondern insbesondere auf die **Bindung und Weiterentwicklung der profitabelsten Kundensegmente** durch personalisierte Maßnahmen und Loyalty-Programme ausgerichtet sein.
