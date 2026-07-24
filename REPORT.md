@@ -337,3 +337,25 @@ Die Visualisierung zeigt die Umsatzentwicklung der einzelnen Regionen und ermög
 
 > 📊 **Visualisierung:** *Umsatzentwicklung nach Regionen (2022–2024)*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+
+## 2.5. Kundenbeitrag (Pareto-Analyse)
+
+Zur Analyse der Umsatzverteilung wurde eine **Pareto-Visualisierung** erstellt. Sie zeigt, welchen Anteil des Gesamtumsatzes die wertvollsten Kunden im Vergleich zur übrigen Kundengruppe generieren.
+
+Die Visualisierung verdeutlicht die Konzentration des Umsatzes und unterstützt die Identifikation besonders wertvoller Kundensegmente.
+
+### Erkenntnisse
+
+- Die **Top 5 % der Kunden** generieren **1,218 Mio. € Umsatz**, was **35,07 % des Gesamtumsatzes** entspricht.
+- Die verbleibenden **95 % der Kunden** erwirtschaften **64,93 % des Gesamtumsatzes**.
+
+Die Ergebnisse zeigen eine deutliche Umsatzkonzentration auf eine vergleichsweise kleine Gruppe besonders wertvoller Kunden.
+
+### Business Insight
+
+Die **Top 5 % der Kunden** stellen das wichtigste Kundensegment dar und sollten durch personalisierte Angebote, exklusive Loyalty-Programme und gezielte Maßnahmen zur Kundenbindung langfristig gehalten werden.
+
+Gleichzeitig bietet das breite Kundensegment der übrigen **95 %** erhebliches Entwicklungspotenzial. Durch gezielte Marketingmaßnahmen, Cross-Selling und Up-Selling können mehr Kunden zu hochwertigen Stamm- und VIP-Kunden entwickelt werden.
+
+> 📊 **Visualisierung:** *Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
