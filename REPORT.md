@@ -579,6 +579,12 @@ Zur Beantwortung dieser Fragestellung wurden die Marketingkanäle anhand von zwe
 
 Ziel der Analyse war es, Marketingkanäle zu identifizieren, die sowohl kurzfristig profitabel als auch langfristig wertvolle Kunden generieren.
 
+> 📊 **Tableau Dashboard:**  
+> *(Link zu Tableau Public hier einfügen)*
+<img width="223" height="259" alt="image" src="https://github.com/user-attachments/assets/73b3499c-f50a-4b1b-a0cd-fe0068e93b33" />
+
+<img width="355" height="122" alt="image" src="https://github.com/user-attachments/assets/c68b737e-9898-470f-ae26-7c6c5c40f19c" />
+
 ---
 
 ## 🔎 Erkenntnisse
