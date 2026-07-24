@@ -55,7 +55,6 @@ Verwendete Tabellen:
 
 # 🗄️ Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
 
-<summary>SQL Details anzeigen</summary>
   
 In diesem Block wurde die Datenaufbereitung und erste Business-Analyse mit SQL durchgeführt.  
 Ziel war es, Daten aus verschiedenen Tabellen zusammenzuführen, zentrale Kennzahlen zu berechnen und Analyse-Datensätze für die spätere Visualisierung in Tableau vorzubereiten.
