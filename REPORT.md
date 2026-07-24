@@ -1,5 +1,4 @@
-<details>
-<summary>📊 ShopSphere: Analyse eines globalen Marktplatzes
+# 📊 ShopSphere: Analyse eines globalen Marktplatzes
 
 ## 🎯 Business-Anforderung
 
@@ -55,7 +54,9 @@ Verwendete Tabellen:
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
 # 🗄️ Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
-
+<details>
+<summary>SQL Details anzeigen</summary>
+  
 In diesem Block wurde die Datenaufbereitung und erste Business-Analyse mit SQL durchgeführt.  
 Ziel war es, Daten aus verschiedenen Tabellen zusammenzuführen, zentrale Kennzahlen zu berechnen und Analyse-Datensätze für die spätere Visualisierung in Tableau vorzubereiten.
 
@@ -101,7 +102,7 @@ Der vollständige SQL-Code mit allen Abfragen:
 📂 **SQL — Analyse-Abfragen und Berechnungen:**  
  [queries.sql](sql/queries.sql)
 
-
+<details>
 ---
 
 ## 1.1. Umsatz, Bestellungen und Ø-Warenkorb nach Region und Jahr
