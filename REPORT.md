@@ -235,6 +235,8 @@ Das Unternehmen sollte Lagerbestände, Marketingbudget und logistische Ressource
 
 > 📊 **Visualisierung:** *Monatlicher Gesamtumsatz (2022–2024)*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+> <img width="584" height="383" alt="image" src="https://github.com/user-attachments/assets/13eef798-f285-4d92-b2a9-46946a356f71" />
+
 
 ## 2.2. Marketing: Budget vs. ROI
 
