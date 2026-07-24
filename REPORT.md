@@ -567,3 +567,55 @@ Das größte Entwicklungspotenzial liegt in:
 - wertvollen Kundensegmenten.
 
 Gezielte Investitionen in diese Bereiche können langfristiges profitables Wachstum unterstützen.
+
+# 🎯 Block 4. Strategische Business Cases
+
+## Case A. Wohin sollte das Marketingbudget investiert werden?
+
+Zur Beantwortung dieser Fragestellung wurden die Marketingkanäle anhand von zwei zentralen Kennzahlen analysiert:
+
+- **ROI (Return on Investment)** – Effizienz der Marketinginvestitionen.
+- **LTV (Customer Lifetime Value)** – Langfristiger Wert der gewonnenen Kunden.
+
+Ziel der Analyse war es, Marketingkanäle zu identifizieren, die sowohl kurzfristig profitabel als auch langfristig wertvolle Kunden generieren.
+
+---
+
+## 🔎 Erkenntnisse
+
+- Die größten Marketingbudgets entfallen auf **Paid Search (450,96 Tsd. USD)** und **Social Ads (286,49 Tsd. USD)**. Trotz ihres hohen Umsatzbeitrags zählen sie zu den Kanälen mit dem niedrigsten ROI.
+
+- Den höchsten ROI erzielen:
+  - **Organic** – **8,02**
+  - **Email** – **6,50**
+  - **Influencer** – **4,62**
+
+- Die Kunden mit dem höchsten Customer Lifetime Value werden über folgende Kanäle gewonnen:
+  - **Influencer** – **1.985,73 USD**
+  - **Referral** – **1.791,82 USD**
+
+- **Organic** weist die ausgewogenste Performance auf und kombiniert einen sehr hohen **ROI (8,02)** mit einem hohen **LTV (1.316,13 USD)**.
+
+---
+
+## 💡 Business-Empfehlungen
+
+- Das Marketingbudget für **Organic**, **Influencer** und **Referral** schrittweise erhöhen.
+- Das aktuelle Budget für **Email** beibehalten, da dieser Kanal eine hohe Effizienz bei moderaten Investitionen zeigt.
+- Die Ausgaben für **Paid Search** und **Social Ads** optimieren, ohne deren Reichweite vollständig zu reduzieren, da sie weiterhin wesentlich zum Verkaufsvolumen beitragen.
+
+---
+
+## ⚠️ Risiken
+
+- **Organic** bietet nur begrenzte Möglichkeiten für eine kurzfristige Skalierung.
+- Der Erfolg von **Influencer Marketing** hängt stark von der Auswahl geeigneter Kooperationspartner ab.
+- Eine zu starke Budgetreduzierung bei **Paid Search** und **Social Ads** könnte kurzfristig die Neukundengewinnung und den Gesamtumsatz negativ beeinflussen.
+
+---
+
+## 📌 Fazit
+
+Eine nachhaltige Marketingstrategie sollte **ROI und Customer Lifetime Value gemeinsam** berücksichtigen.
+
+Während der ROI die kurzfristige Rentabilität der Marketingmaßnahmen bewertet, zeigt der LTV den langfristigen wirtschaftlichen Wert der gewonnenen Kunden. Die Kombination beider Kennzahlen ermöglicht eine effizientere Budgetverteilung und unterstützt ein profitables sowie nachhaltiges Unternehmenswachstum.
