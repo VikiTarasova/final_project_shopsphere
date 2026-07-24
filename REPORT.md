@@ -142,7 +142,78 @@ Berechnet wurden:
 
 Durch:
 
-```sql
-ORDER BY total_spent DESC
-LIMIT 10
+```sql```
 
+```ORDER BY total_spent DESC ```
+
+LIMIT 10 
+
+## 1.3. Kategorien: Umsatz, Marge und Retouren
+
+Für die Produktanalyse wurden die Tabellen:
+
+- `shopsphere_order_items`
+- `shopsphere_products`
+- `shopsphere_orders`
+
+über **JOIN** miteinander verbunden.
+
+Berechnet wurden je Produktkategorie:
+
+- Kategorieumsatz (`SUM(line_total)`)
+- durchschnittliche Marge (`AVG(margin_pct)`)
+- Retourenrate (`AVG(is_returned)`)
+
+Die Ergebnisse ermöglichen einen direkten Vergleich der Produktkategorien hinsichtlich Umsatz, Profitabilität und Retourenquote.
+
+**Hinweis:**  
+Die SQL-Abfrage liefert die grundlegenden Kennzahlen je Kategorie. Die weiterführende Analyse der Zusammenhänge zwischen Umsatz, Marge und Retourenquote sowie die Visualisierung wurden anschließend in Tableau durchgeführt.
+
+---
+
+## 1.4. Kunden über Durchschnittsausgaben
+
+Zur Identifikation besonders wertvoller Kunden wurden **Subqueries** verwendet.
+
+Berechnungsschritte:
+
+1. Ermittlung der Gesamtausgaben pro Kunde (`SUM(net_amount)`).
+2. Berechnung der durchschnittlichen Kundenausgaben über alle Kunden (`AVG(total_spent)`).
+3. Auswahl aller Kunden mit Ausgaben oberhalb dieses Durchschnittswerts.
+
+Ausgegeben wurden:
+
+- Kunden-ID
+- Region
+- Land
+- Akquisitionskanal
+- Gesamtausgaben
+
+**Hinweis:**  
+Die SQL-Abfrage liefert die Liste aller Kunden mit überdurchschnittlichen Ausgaben. Die Anzahl dieser Kunden sowie ihr Anteil am Gesamtumsatz wurden anschließend in Tableau berechnet.
+
+---
+
+## 1.5. Marketingkanäle: Budget, Umsatz und ROI
+
+Für die Analyse der Marketingkanäle wurde die Tabelle `shopsphere_marketing` verwendet.
+
+Berechnet wurden:
+
+- Gesamtbudget (`SUM(budget)`)
+- zugerechneter Umsatz (`SUM(attributed_reven)`)
+- ROI (`Umsatz / Budget`)
+
+Zusätzlich wurden weitere Marketing-KPIs berechnet:
+
+- Impressions
+- Clicks
+- Conversions
+- CTR (`Clicks / Impressions`)
+- Conversion Rate (`Conversions / Clicks`)
+- Cost per Conversion (`Budget / Conversions`)
+
+Die Ergebnisse ermöglichen einen direkten Vergleich der Effizienz verschiedener Marketingkanäle.
+
+**Hinweis:**  
+Die SQL-Abfrage stellt die Basiskennzahlen für jeden Marketingkanal bereit. Die weitere Bewertung der Kanäle, das Ranking nach ROI sowie die Ableitung von Business Insights und Empfehlungen erfolgten anschließend in Tableau.
