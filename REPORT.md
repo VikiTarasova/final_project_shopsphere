@@ -235,3 +235,26 @@ Das Unternehmen sollte Lagerbestände, Marketingbudget und logistische Ressource
 
 > 📊 **Visualisierung:** *Monatlicher Gesamtumsatz (2022–2024)*  
 > *(Tableau-Dashboard / Screenshot hier einfügen)*
+
+## 2.2. Marketing: Budget vs. ROI
+
+Zur Bewertung der Marketingeffizienz wurde eine Visualisierung erstellt, die **Marketingbudget und Return on Investment (ROI)** der einzelnen Marketingkanäle miteinander vergleicht.
+
+Die Darstellung ermöglicht es, die Beziehung zwischen Investitionshöhe und Marketingeffizienz zu analysieren und zu bewerten, ob das Budget sinnvoll verteilt ist.
+
+### Erkenntnisse
+
+Die Analyse zeigt, dass die größten Marketingbudgets in **Paid Search** (450,96 Tsd. USD) und **Social Ads** (286,49 Tsd. USD) investiert wurden. Diese Kanäle generieren zwar den höchsten zugeschriebenen Umsatz (598,70 Tsd. USD bzw. 589,54 Tsd. USD), erzielen jedoch einen deutlich geringeren ROI als einige Kanäle mit wesentlich kleineren Budgets.
+
+Die höchsten ROI-Werte wurden erreicht von:
+
+- **Organic** – ROI **8,02**
+- **Email** – ROI **6,50**
+- **Influencer** – ROI **4,62**
+
+### Business Insight
+
+Die Ergebnisse zeigen Optimierungspotenzial bei der Budgetverteilung. Eine stärkere Investition in besonders rentable Kanäle wie **Organic**, **Email** und **Influencer** kann die Marketingeffizienz erhöhen. Gleichzeitig bleiben **Paid Search** und **Social Ads** wichtige Kanäle, um ein hohes Verkaufsvolumen und eine breite Reichweite sicherzustellen.
+
+> 📊 **Visualisierung:** *Marketingbudget vs. ROI nach Marketingkanal*  
+> *(Tableau-Dashboard / Screenshot hier einfügen)*
