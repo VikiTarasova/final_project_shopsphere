@@ -30,15 +30,17 @@ Die Daten sind in 5 miteinander verbundenen Tabellen organisiert:
 - `shopsphere_customers`
 https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_customers.csv 
 
-| products | Produktkatalog (Produkt-ID, Kategorie, Preis, Marge) |
+- `shopsphere_products`
 https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_products.csv
 
-| orders | Bestellungen (Bestell-ID, Kunde, Datum, Umsatz, Status) | 
+- `shopsphere_orders`
 https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_orders.csv 
 
-| order_items | Produkte innerhalb der Bestellungen (Menge, Preis, Produkt-ID) |https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_order_items.csv
+- `shopsphere_order_items`
+|https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_order_items.csv
 
-| marketing | Marketingkampagnen (Kanal, Budget, Kosten, Performance-Kennzahlen) | https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_marketing.csv 
+- `shopsphere_marketing`
+https://raw.githubusercontent.com/VikiTarasova/final_project_shopsphere/refs/heads/main/data/shopsphere_marketing.csv 
 
 ---
 
