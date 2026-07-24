@@ -145,3 +145,4 @@ Durch:
 ```sql
 ORDER BY total_spent DESC
 LIMIT 10
+
