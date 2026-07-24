@@ -1,5 +1,5 @@
 <details>
-<summary> 📊 ShopSphere: Analyse eines globalen Marktplatzes
+<summary>📊 ShopSphere: Analyse eines globalen Marktplatzes
 
 ## 🎯 Business-Anforderung
 
