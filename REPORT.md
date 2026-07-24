@@ -1,6 +1,7 @@
 # 📊 ShopSphere: Analyse eines globalen Marktplatzes
 
 ## 🎯 Business-Anforderung
+<img width="680" height="383" alt="image" src="https://github.com/user-attachments/assets/9db6830f-5b54-4f6f-88a5-5c8965e65163" />
 
 Der CEO wendet sich an das Analytics-Team:
 
