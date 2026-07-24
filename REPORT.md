@@ -713,4 +713,105 @@ Ziel der Analyse war es zu bewerten, ob hohe Rabatte langfristige Kundenbindung 
 
 Hohe Rabatte fördern kurzfristig den Erstkauf, tragen jedoch nur begrenzt zur langfristigen Kundenbindung bei.
 
+Den größten Unternehmenswert schafft eine vergleichsweise kleine Gruppe besonders wertvoller Kunden. Eine nachhaltige Wachstumsstrategie sollte daher nicht nur auf die Neukundengewinnung, sondern insbesondere auf die **Bindung und Weiterentwicklung der profitabelsten Kundensegmente** durch personalisierte Maßnahmen und Loyalty-Programme ausgerichtet sein.  
+
+
+# 🧪 Block 5. Statistisches Denken: A/B-Experiment
+
+## Analyse des Checkout-Experiments
+
+Es wurde ein **A/B-Test eines neuen Checkout-Designs** durchgeführt. Dabei erhielt die Hälfte der Bestellungen die alte Version (**Variant A**), während die andere Hälfte die neue Version (**Variant B**) nutzte.
+
+Ziel der Analyse war es, nicht nur Durchschnittswerte zu vergleichen, sondern zu untersuchen, **für welche Kundengruppen die Änderung tatsächlich einen Mehrwert erzeugt**.
+
+---
+
+## 🔎 Vergleich des durchschnittlichen Bestellwerts zwischen Variant A und Variant B
+
+<img width="609" height="341" alt="image" src="https://github.com/user-attachments/assets/953734b7-319d-44a1-8699-967377cacc5c" />
+
+
+Auf den ersten Blick zeigt **Variant B** ein besseres Ergebnis. Der Unterschied zwischen den beiden Varianten über den gesamten Testzeitraum ist jedoch relativ gering:
+
+| Variante | Durchschnittlicher Bestellwert |
+|---|---:|
+| Variant A | 281,72 USD |
+| Variant B | 287,27 USD |
+
+Die Differenz beträgt lediglich **5,55 USD**.
+
+Auf Basis des Gesamtdurchschnitts kann daher keine eindeutige Aussage getroffen werden, dass das neue Checkout-Design für alle Kunden einen signifikanten Vorteil bietet.
+
+Für eine fundierte Bewertung wurde zusätzlich eine Segmentanalyse durchgeführt.
+
+---
+
+# 👥 Analyse nach Kundensegmenten
+
+Nach der Aufteilung der Kunden in **neue Kunden** und **Bestandskunden** zeigte sich ein unterschiedlicher Einfluss der neuen Checkout-Version.
+
+| Kundengruppe | Variant A | Variant B | Veränderung |
+|---|---:|---:|---:|
+| Neue Kunden | 223,30 USD | 266,21 USD | **+19 %** |
+| Wiederkehrende Kunden | 286,24 USD | 288,85 USD | **+ <1 %** |
+
+### Erkenntnisse
+
+Das neue Checkout-Design zeigt den größten positiven Effekt bei **neuen Kunden**.
+
+- Der durchschnittliche Bestellwert steigt bei neuen Kunden um **19 %**.
+- Bei wiederkehrenden Kunden ist die Verbesserung mit weniger als **1 %** nahezu vernachlässigbar.
+
+Dies zeigt, dass der Gesamtdurchschnitt die wichtigen Unterschiede zwischen Kundensegmenten verdeckt.
+
+---
+
+## 💡 Business-Empfehlung
+
+Die Einführung von **Variant B** sollte zunächst auf **neue Kunden** fokussiert werden, da diese Gruppe den größten positiven Effekt zeigt.
+
+Vor einem vollständigen Rollout für alle Nutzer sollten jedoch weitere Analysen durchgeführt werden:
+
+- statistische Signifikanz der Ergebnisse prüfen;
+- Einfluss auf die Conversion Rate analysieren;
+- Abbruchrate im Checkout-Prozess untersuchen;
+- Unterschiede nach Regionen und Geräten bewerten.
+
+---
+
+## ⚠️ Risiken einer falschen Interpretation von A/B-Tests
+
+A/B-Testergebnisse können durch eine selektive Darstellung beeinflusst werden.
+
+### Um Variant B erfolgreicher erscheinen zu lassen, könnte man:
+
+- nur Zeiträume zeigen, in denen Variant B besser abschneidet;
+- positive Trends nach August hervorheben;
+- Skalierungen von Diagrammen verwenden, die Unterschiede visuell übertreiben.
+
+### Um Variant B schlechter darzustellen, könnte man:
+
+- ausschließlich wiederkehrende Kunden betrachten, bei denen der Effekt kaum vorhanden ist;
+- den positiven Effekt bei neuen Kunden ignorieren.
+
+Eine korrekte Analyse muss daher immer alle relevanten Kundensegmente berücksichtigen.
+
+---
+
+## 📌 Fazit
+
+Der Gesamtdurchschnitt allein reicht nicht aus, um die Wirkung einer Produktänderung zu bewerten.
+
+Variant B zeigt **keine deutliche Verbesserung für alle Nutzergruppen**, erzielt jedoch einen klaren positiven Effekt bei **neuen Kunden (+19 % durchschnittlicher Bestellwert)**.
+
+Die richtige Schlussfolgerung lautet daher nicht:
+
+> „Variant B ist für alle Kunden besser.“
+
+Sondern:
+
+> „Das neue Checkout-Design bietet einen nachweisbaren Mehrwert für neue Kunden und sollte nach Bestätigung der statistischen Signifikanz gezielt für dieses Segment ausgerollt werden.“
+
+Hohe Rabatte fördern kurzfristig den Erstkauf, tragen jedoch nur begrenzt zur langfristigen Kundenbindung bei.
+
 Den größten Unternehmenswert schafft eine vergleichsweise kleine Gruppe besonders wertvoller Kunden. Eine nachhaltige Wachstumsstrategie sollte daher nicht nur auf die Neukundengewinnung, sondern insbesondere auf die **Bindung und Weiterentwicklung der profitabelsten Kundensegmente** durch personalisierte Maßnahmen und Loyalty-Programme ausgerichtet sein.
