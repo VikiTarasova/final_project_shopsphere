@@ -53,7 +53,7 @@ Verwendete Tabellen:
 | Processed Data | Ergebnisse der SQL-Abfragen und vorbereitete Tabellen für Analysen und Visualisierungen | [data1](data/data1/) |
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
-# Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
+#🗄️Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
 
 In diesem Block wurde die Datenaufbereitung und erste Business-Analyse mit SQL durchgeführt.  
 Ziel war es, Daten aus verschiedenen Tabellen zusammenzuführen, zentrale Kennzahlen zu berechnen und Analyse-Datensätze für die spätere Visualisierung in Tableau vorzubereiten.
@@ -124,7 +124,6 @@ Die zusätzliche Gruppierung nach Jahren sowie die Analyse der Jahresentwicklung
 
 
 ---
-#🗄️ Block 1. SQL: Datenaufbereitung
 
 ## 1.2. Top-10 Kunden nach Ausgaben
 
