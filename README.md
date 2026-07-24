@@ -50,3 +50,37 @@ Der CEO benötigt Antworten auf die wichtigsten strategischen Fragen:
 - Welche Produktkategorien generieren tatsächlichen Gewinn und welche nur einen hohen Umsatz?
 - Welche Regionen besitzen das größte Wachstumspotenzial?
 - Hat das neue Checkout-Design das Kundenverhalten verbessert?
+
+# 🔎 Analyseschritte
+
+## 1. SQL: Datenaufbereitung
+
+Mithilfe von SQL wurden analytische Datensätze erstellt:
+
+- Umsatz, Anzahl der Bestellungen und durchschnittlicher Bestellwert nach Regionen und Jahren;
+- Top-10-Kunden nach Ausgaben;
+- Analyse der Produktkategorien nach Umsatz, Marge und Retourenquote;
+- Segmentierung der Kunden mit überdurchschnittlichen Ausgaben;
+- Analyse des ROI der Marketingkanäle.
+
+**Verwendete SQL-Techniken:**
+
+- JOIN
+- GROUP BY
+- HAVING
+- Subqueries
+- Aggregationen
+
+---
+
+# 📈 Tableau Visualisierungen
+
+Es wurden 6 zentrale Visualisierungen erstellt:
+
+## 1. Seasonality Analysis  
+## 2. Marketing Performance: Budget vs. ROI  
+## 3. Product Category Analysis  
+## 4. Regional Growth Analysis  
+## 5. Customer Pareto Analysis  
+## 6. Device & Channel Analysis
+
