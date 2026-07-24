@@ -54,7 +54,7 @@ Verwendete Tabellen:
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
 <details>
-<summary> <b></b></summary>
+<summary>🗄️ <b>Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)</b></summary>
 
 # 🗄️ Block 1. SQL: Datenaufbereitung (JOIN, Aggregationen, Subqueries)
 
