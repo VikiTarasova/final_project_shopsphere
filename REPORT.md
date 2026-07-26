@@ -255,8 +255,7 @@ Die Analyse des Liniendiagramms zeigt eine **deutliche Saisonalität**. Ab **Okt
 Das Unternehmen sollte Lagerbestände, Marketingbudget und logistische Ressourcen frühzeitig auf die Hochsaison ausrichten. Die Analyse zeigt, dass das **4. Quartal die umsatzstärkste und profitabelste Periode für ShopSphere** ist und daher besonderes Potenzial für Umsatzwachstum bietet.
 
 > 📊 **Visualisierung:** *Monatlicher Gesamtumsatz (2022–2024)*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
- <img width="584" height="383" alt="image" src="https://github.com/user-attachments/assets/13eef798-f285-4d92-b2a9-46946a356f71" />
+[![Monatlicher Gesamtumsatz](https://github.com/user-attachments/assets/13eef798-f285-4d92-b2a9-46946a356f71)](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/UmsatztrendSaisonalitt?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ## 2.2. Marketing: Budget vs. ROI
