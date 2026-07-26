@@ -770,7 +770,9 @@ Ziel der Analyse war es, nicht nur Durchschnittswerte zu vergleichen, sondern zu
 
 ## 🔎 Vergleich des durchschnittlichen Bestellwerts zwischen Variant A und Variant B
 
-<img width="609" height="341" alt="image" src="https://github.com/user-attachments/assets/953734b7-319d-44a1-8699-967377cacc5c" />
+> 📊 **Visualisierung:** *A/B-Test: Ø Bestellwert*
+
+[<img width="609" height="341" alt="A/B-Test: Ø Bestellwert" src="https://github.com/user-attachments/assets/953734b7-319d-44a1-8699-967377cacc5c">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/AB-TestBestellwert?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 Auf den ersten Blick zeigt **Variant B** ein besseres Ergebnis. Der Unterschied zwischen den beiden Varianten über den gesamten Testzeitraum ist jedoch relativ gering:
