@@ -279,7 +279,6 @@ Die höchsten ROI-Werte wurden erreicht von:
 Die Ergebnisse zeigen Optimierungspotenzial bei der Budgetverteilung. Eine stärkere Investition in besonders rentable Kanäle wie **Organic**, **Email** und **Influencer** kann die Marketingeffizienz erhöhen. Gleichzeitig bleiben **Paid Search** und **Social Ads** wichtige Kanäle, um ein hohes Verkaufsvolumen und eine breite Reichweite sicherzustellen.
 
 > 📊 **Visualisierung:** *Marketingbudget vs. ROI nach Marketingkanal*  
-> 📊 **Visualisierung:** *Marketingkanäle: Budget, Umsatz und ROI*
 
 [<img width="221" height="253" alt="Marketingkanäle: Budget, Umsatz und ROI" src="https://github.com/user-attachments/assets/ec5642f8-2468-4ceb-bd29-c37d57c00671">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/MarketingkanleBudgetUmsatzundROI?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
@@ -322,9 +321,8 @@ Die Visualisierung ermöglicht die Identifikation besonders profitabler Kategori
 
 Die Kategorien **Beauty**, **Sports** und **Home & Kitchen** können als **„Hidden Champions“** bezeichnet werden. Sie kombinieren überdurchschnittliche Margen mit vergleichsweise niedrigen Retourenquoten und bieten das größte Potenzial für profitables Wachstum. **Electronics** erzielt zwar den höchsten Umsatz, weist aufgrund der geringen Marge und hohen Retouren jedoch die niedrigste Profitabilität auf und sollte daher gezielt optimiert werden.
 
-> 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
-<img width="681" height="377" alt="image" src="https://github.com/user-attachments/assets/5c79e00c-b9ec-4b85-b7c8-8a114d6b408e" />
+> 📊 **Visualisierung:** *Umsatz vs. Marge mit Retourenquote nach Produktkategorie*
+[<img width="681" height="377" alt="Umsatz vs. Marge mit Retourenquote nach Produktkategorie" src="https://github.com/user-attachments/assets/5c79e00c-b9ec-4b85-b7c8-8a114d6b408e">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/KategorienUmsatzMargeundRetouren?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 <img width="218" height="347" alt="image" src="https://github.com/user-attachments/assets/8f06ce84-5b4b-4f6c-950b-0b7463e39ea8" />
 
 
@@ -363,9 +361,9 @@ Die Visualisierung zeigt die Umsatzentwicklung der einzelnen Regionen und ermög
 
 **North America** ist der wichtigste Umsatzmarkt des Unternehmens, während **Southeast Asia** die höchste Wachstumsdynamik und das größte Entwicklungspotenzial aufweist. **Europe** sorgt für stabile Umsätze, **Latin America** entwickelt sich kontinuierlich weiter und **Middle East** könnte durch gezielte Marketing- und Vertriebsmaßnahmen zusätzliches Wachstum erzielen.
 
-> 📊 **Visualisierung:** *Umsatzentwicklung nach Regionen (2022–2024)*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
-<img width="230" height="348" alt="image" src="https://github.com/user-attachments/assets/ea957076-0699-470a-8718-80eba09dc80c" />
+> 📊 **Visualisierung:** *Umsatzentwicklung nach Regionen (2022–2024)*
+
+[<img width="230" height="348" alt="Umsatzentwicklung nach Regionen (2022–2024)" src="https://github.com/user-attachments/assets/ea957076-0699-470a-8718-80eba09dc80c">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/UmsatzentwicklungnachRegionen?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ## 2.5. Kundenbeitrag (Pareto-Analyse)
@@ -387,9 +385,9 @@ Die **Top 5 % der Kunden** stellen das wichtigste Kundensegment dar und sollten 
 
 Gleichzeitig bietet das breite Kundensegment der übrigen **95 %** erhebliches Entwicklungspotenzial. Durch gezielte Marketingmaßnahmen, Cross-Selling und Up-Selling können mehr Kunden zu hochwertigen Stamm- und VIP-Kunden entwickelt werden.
 
-> 📊 **Visualisierung:** *Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
-<img width="608" height="350" alt="image" src="https://github.com/user-attachments/assets/df3fe9a2-4c05-41cd-9b1a-02e6766e398b" />
+> 📊 **Visualisierung:** *Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden*
+
+[<img width="608" height="350" alt="Pareto-Analyse – Umsatzanteil der Top-5-%-Kunden" src="https://github.com/user-attachments/assets/df3fe9a2-4c05-41cd-9b1a-02e6766e398b">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Pareto-AnalyseTop5-Kunden?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ## 2.6. Einfluss von Marketingkanal und Gerät auf den durchschnittlichen Bestellwert
@@ -433,9 +431,9 @@ Diese Segmente sollten hinsichtlich Produktangebot, Zielgruppe und Rücksendegr�
 
 **Mobile** sollte weiterhin als wichtigster Umsatzkanal im Fokus der Marketingstrategie stehen. Gleichzeitig bieten **Tablet- und Desktop-Nutzer** aufgrund ihres höheren durchschnittlichen Bestellwerts Potenzial für Premium-Produkte und gezielte Cross- bzw. Up-Selling-Kampagnen. Besonders erfolgreiche Kombinationen wie **Paid Search + Tablet** können als Best Practice für zukünftige Marketingmaßnahmen dienen, während Segmente mit hohen Retourenquoten gezielt optimiert werden sollten.
 
-> 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
-<img width="679" height="378" alt="image" src="https://github.com/user-attachments/assets/a2ab81c0-d935-498d-819b-f431e0390915" />
+> 📊 **Visualisierung:** *Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert*
+
+[<img width="679" height="378" alt="Einfluss von Marketingkanal und Gerät auf den Ø Bestellwert" src="https://github.com/user-attachments/assets/a2ab81c0-d935-498d-819b-f431e0390915">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 </details>
 
