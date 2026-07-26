@@ -88,7 +88,7 @@ Es wurden 6 zentrale Visualisierungen erstellt:
 ## 6. Device & Channel Analysis
 
 **Link:**  
-Tableau Public: **()**
+Tableau Public: **(https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
 
 # 🧪 A/B-Test: Checkout-Experiment
 
