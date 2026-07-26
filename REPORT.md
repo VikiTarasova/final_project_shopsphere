@@ -453,8 +453,9 @@ Ziel des Dashboards ist es, dem Management einen schnellen und strukturierten Ü
 - Wo bestehen Optimierungspotenziale?
 
 > 📊 **Tableau Dashboard:**  
-> *(Link zu Tableau Public hier einfügen)*
-<img width="680" height="383" alt="image" src="https://github.com/user-attachments/assets/4c674c74-4f8f-4678-8faa-68938f3138b4" />
+> 📊 **Visualisierung:** *CEO Dashboard – ShopSphere Business Performance Analyse*
+
+[<img width="680" height="383" alt="CEO Dashboard – ShopSphere Business Performance Analyse" src="https://github.com/user-attachments/assets/4c674c74-4f8f-4678-8faa-68938f3138b4">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
@@ -610,11 +611,14 @@ Zur Beantwortung dieser Fragestellung wurden die Marketingkanäle anhand von zwe
 
 Ziel der Analyse war es, Marketingkanäle zu identifizieren, die sowohl kurzfristig profitabel als auch langfristig wertvolle Kunden generieren.
 
-> 📊 **Tableau Dashboard:**  
-> *(Link zu Tableau Public hier einfügen)*
-<img width="223" height="259" alt="image" src="https://github.com/user-attachments/assets/73b3499c-f50a-4b1b-a0cd-fe0068e93b33" />
+> 📊 **Tableau Dashboard:** *Marketingkanäle: Budget, Umsatz und ROI*
 
-<img width="355" height="122" alt="image" src="https://github.com/user-attachments/assets/c68b737e-9898-470f-ae26-7c6c5c40f19c" />
+[<img width="223" height="259" alt="Marketingkanäle: Budget, Umsatz und ROI" src="https://github.com/user-attachments/assets/73b3499c-f50a-4b1b-a0cd-fe0068e93b33">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/MarketingkanleBudgetUmsatzundROI?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+
+> 📊 **Visualisierung:** *Durchschnittlicher Customer Lifetime Value (LTV) nach Akquisitionskanal*
+
+[<img width="355" height="122" alt="Durchschnittlicher Customer Lifetime Value (LTV) nach Akquisitionskanal" src="https://github.com/user-attachments/assets/c68b737e-9898-470f-ae26-7c6c5c40f19c">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/DurchschnittlicherLTVnachAkquisitionskanal?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
@@ -725,8 +729,12 @@ Ziel der Analyse war es zu bewerten, ob hohe Rabatte langfristige Kundenbindung 
   - **Referral** – **16,28 %**
 
 - Die wertvollsten Kunden stammen überwiegend aus den Regionen **Europe**, **North America** und **Southeast Asia**.
-<img width="554" height="193" alt="image" src="https://github.com/user-attachments/assets/ed0d062d-45b9-4bab-ac40-f3cebc2623db" /> <img width="134" height="88" alt="image" src="https://github.com/user-attachments/assets/00aa94c2-084c-45c5-b282-5e4592e28f01" />
+  
+> 📊 **Tableau:** *Analyse des Beitrags der Top-5%-Kunden*
 
+[<img width="554" height="193" alt="A/B-Test – Einfluss des Checkout-Designs auf den Ø Bestellwert" src="https://github.com/user-attachments/assets/ed0d062d-45b9-4bab-ac40-f3cebc2623db">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/8_92?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+[<img width="134" height="88" alt="A/B-Test – Detailanalyse Checkout-Varianten" src="https://github.com/user-attachments/assets/00aa94c2-084c-45c5-b282-5e4592e28f01">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/8_92?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
