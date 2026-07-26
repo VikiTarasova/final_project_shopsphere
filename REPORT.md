@@ -279,8 +279,9 @@ Die höchsten ROI-Werte wurden erreicht von:
 Die Ergebnisse zeigen Optimierungspotenzial bei der Budgetverteilung. Eine stärkere Investition in besonders rentable Kanäle wie **Organic**, **Email** und **Influencer** kann die Marketingeffizienz erhöhen. Gleichzeitig bleiben **Paid Search** und **Social Ads** wichtige Kanäle, um ein hohes Verkaufsvolumen und eine breite Reichweite sicherzustellen.
 
 > 📊 **Visualisierung:** *Marketingbudget vs. ROI nach Marketingkanal*  
-> *(Tableau-Dashboard / Screenshot hier einfügen)*
-<img width="221" height="253" alt="image" src="https://github.com/user-attachments/assets/ec5642f8-2468-4ceb-bd29-c37d57c00671" />
+> 📊 **Visualisierung:** *Marketingkanäle: Budget, Umsatz und ROI*
+
+[<img width="221" height="253" alt="Marketingkanäle: Budget, Umsatz und ROI" src="https://github.com/user-attachments/assets/ec5642f8-2468-4ceb-bd29-c37d57c00671">](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/MarketingkanleBudgetUmsatzundROI?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 ## 2.3. Produktkategorien: Umsatz vs. Profitabilität
