@@ -62,6 +62,7 @@ Verwendete Tabellen:
 | SQL | Analyse-Abfragen und Berechnungen | [queries.sql](sql/queries.sql) |
 | Data | Rohdaten aus dem ShopSphere-Datensatz (Original-CSV-Tabellen) | [data](data/) |
 | Processed Data | Ergebnisse der SQL-Abfragen und vorbereitete Tabellen für Analysen und Visualisierungen | [data1](data/data1/) |
+| Tableau Dashboard | Interaktives Executive Dashboard mit KPI, Visualisierungen und Filtern | **[Tableau Public]([https://public.tableau.com/views/DEIN_DASHBOARD_LINK](https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link))** |
 | Report | Business Insights, Analysen und strategische Empfehlungen | [REPORT.md](REPORT.md) |
 
 </details>
