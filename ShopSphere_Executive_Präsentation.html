@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="uk" data-lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopSphere — Data Analytics Executive Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#0A0F1D;
+  --panel:#111B2E;
+  --panel-2:#16223A;
+  --line:rgba(168,179,199,0.14);
+  --line-strong:rgba(168,179,199,0.28);
+  --fog:#93A0BC;
+  --paper:#EEF2FA;
+  --gold:#E8A63D;
+  --gold-soft:rgba(232,166,61,0.14);
+  --teal:#34C7B8;
+  --teal-soft:rgba(52,199,184,0.14);
+  --coral:#FF6B5C;
+  --coral-soft:rgba(255,107,92,0.14);
+  --radius:14px;
+  --maxw:1160px;
+  --rail-w:232px;
+  --ff-display:'Golos Text', 'Inter', sans-serif;
+  --ff-body:'Inter', sans-serif;
+  --ff-mono:'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--ff-body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* language toggling */
+html[data-lang="ua"] .de{display:none;}
+html[data-lang="ua"] .ua{display:inline;}
+html[data-lang="de"] .ua{display:none;}
+html[data-lang="de"] .de{display:inline;}
+.chip-lang-block[data-lang-block]{display:block;}
+html[data-lang="ua"] [data-lang-block="de"]{display:none;}
+html[data-lang="de"] [data-lang-block="ua"]{display:none;}
+
+h1,h2,h3,h4{font-family:var(--ff-display); margin:0; font-weight:600; letter-spacing:-0.01em;}
+p{margin:0;}
+ul{margin:0; padding:0; list-style:none;}
+a{color:inherit;}
+
+.eyebrow{
+  font-family:var(--ff-mono);
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:22px; height:1px; background:var(--teal);
+}
+
+/* ===== Language switch ===== */
+.lang-switch{
+  position:fixed;
+  top:18px; right:18px;
+  z-index:500;
+  display:flex;
+  background:rgba(17,27,46,0.85);
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  padding:4px;
+  backdrop-filter:blur(10px);
+  gap:2px;
+}
+.lang-switch button{
+  font-family:var(--ff-mono);
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+  padding:7px 16px;
+  border-radius:999px;
+  border:none;
+  background:transparent;
+  color:var(--fog);
+  cursor:pointer;
+  transition:color .2s ease;
+}
+.lang-switch button.active{
+  background:var(--gold);
+  color:#1A1204;
+}
+
+/* ===== Rail navigation ===== */
+.rail{
+  position:fixed;
+  top:0; left:0; bottom:0;
+  width:var(--rail-w);
+  border-right:1px solid var(--line);
+  padding:96px 0 32px;
+  display:flex;
+  flex-direction:column;
+  z-index:400;
+  background:linear-gradient(180deg, rgba(10,15,29,0.4), rgba(10,15,29,0.85));
+}
+.rail-brand{
+  position:absolute;
+  top:28px; left:32px;
+  font-family:var(--ff-display);
+  font-weight:700;
+  font-size:1.05rem;
+  letter-spacing:-0.01em;
+}
+.rail-brand span{color:var(--gold);}
+.rail-list{
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+}
+.rail-list a{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  padding:11px 32px;
+  text-decoration:none;
+  border-left:2px solid transparent;
+  font-size:0.85rem;
+  color:var(--fog);
+  transition:all .2s ease;
+}
+.rail-list a .num{
+  font-family:var(--ff-mono);
+  font-size:0.72rem;
+  color:var(--fog);
+  opacity:0.6;
+}
+.rail-list a:hover{color:var(--paper);}
+.rail-list a.active{
+  color:var(--paper);
+  border-left-color:var(--gold);
+  background:rgba(232,166,61,0.06);
+}
+.rail-list a.active .num{color:var(--gold); opacity:1;}
+
+/* mobile rail */
+@media (max-width:980px){
+  .rail{
+    position:fixed;
+    top:0; left:0; right:0; bottom:auto;
+    width:100%; height:64px;
+    padding:0;
+    border-right:none;
+    border-bottom:1px solid var(--line);
+    background:rgba(10,15,29,0.92);
+    backdrop-filter:blur(10px);
+  }
+  .rail-brand{display:none;}
+  .rail-list{
+    flex-direction:row;
+    overflow-x:auto;
+    overflow-y:hidden;
+    height:100%;
+    align-items:center;
+    padding:0 130px 0 16px;
+  }
+  .rail-list a{
+    padding:8px 14px;
+    white-space:nowrap;
+    border-left:none;
+    border-bottom:2px solid transparent;
+    flex:0 0 auto;
+  }
+  .rail-list a.active{border-left:none; border-bottom-color:var(--gold);}
+  .lang-switch{top:12px; right:12px; transform:scale(0.92);}
+}
+
+/* ===== Layout ===== */
+main{margin-left:var(--rail-w);}
+@media (max-width:980px){ main{margin-left:0; margin-top:64px;} }
+
+.section{
+  padding:96px 48px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+@media (max-width:700px){ .section{padding:64px 22px;} }
+
+.section-inner{max-width:var(--maxw); margin:0 auto;}
+
+.section-head{margin-bottom:48px; max-width:720px;}
+.section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem); margin-top:14px;}
+.section-head .lede{margin-top:16px; color:var(--fog); font-size:1.05rem; max-width:600px;}
+
+.reveal{
+  opacity:0; transform:translateY(18px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.in{opacity:1; transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:96px 48px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+@media (max-width:700px){ .hero{padding:64px 22px; min-height:auto; padding-top:120px; padding-bottom:80px;} }
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:40px;
+  align-items:center;
+  max-width:var(--maxw);
+  margin:0 auto;
+  width:100%;
+  position:relative;
+  z-index:2;
+}
+@media (max-width:980px){ .hero-grid{grid-template-columns:1fr;} }
+
+.hero h1{
+  font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+  line-height:1.04;
+  margin-top:18px;
+}
+.hero h1 .accent{color:var(--gold);}
+.hero .lede{
+  margin-top:22px;
+  font-size:1.15rem;
+  color:var(--fog);
+  max-width:520px;
+}
+.hero-meta{
+  display:flex;
+  gap:28px;
+  margin-top:44px;
+  flex-wrap:wrap;
+}
+.hero-meta .item{
+  font-family:var(--ff-mono);
+  font-size:0.78rem;
+  color:var(--fog);
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.hero-meta .item b{color:var(--paper); font-size:0.9rem;}
+
+.orbit-wrap{position:relative; width:100%; aspect-ratio:1/1; max-width:520px; margin:0 auto;}
+.orbit-wrap svg{width:100%; height:100%;}
+.orbit-rotate{
+  transform-origin:300px 300px;
+  animation:rotate 90s linear infinite;
+}
+@keyframes rotate{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){ .orbit-rotate{animation:none;} }
+.orbit-core-pulse{ animation:pulse 3.2s ease-in-out infinite; transform-origin:300px 300px;}
+@keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.72;} }
+@media (prefers-reduced-motion:reduce){ .orbit-core-pulse{animation:none;} }
+.node-label{font-family:var(--ff-mono); font-size:13px; fill:var(--paper);}
+.node-value{font-family:var(--ff-mono); font-size:11px; fill:var(--fog);}
+
+/* ===== Cards / grids ===== */
+.grid{display:grid; gap:20px;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-5{grid-template-columns:repeat(5,1fr);}
+@media (max-width:900px){ .grid-2,.grid-3,.grid-5{grid-template-columns:1fr;} }
+@media (min-width:901px) and (max-width:1100px){ .grid-3,.grid-5{grid-template-columns:repeat(2,1fr);} }
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+}
+.card h3{font-size:1.05rem; margin-bottom:10px;}
+.card p, .card li{color:var(--fog); font-size:0.94rem;}
+.card ul{display:flex; flex-direction:column; gap:8px; margin-top:10px;}
+.card li{position:relative; padding-left:16px;}
+.card li::before{content:"—"; position:absolute; left:0; color:var(--teal);}
+
+.tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+.tag{
+  font-family:var(--ff-mono);
+  font-size:0.74rem;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--line-strong);
+  color:var(--fog);
+}
+.tag.gold{border-color:rgba(232,166,61,0.4); color:var(--gold);}
+.tag.teal{border-color:rgba(52,199,184,0.4); color:var(--teal);}
+.tag.coral{border-color:rgba(255,107,92,0.4); color:var(--coral);}
+
+/* ===== SQL code carousel ===== */
+.sql-carousel{margin-top:44px;}
+.sql-carousel-head{
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:14px; margin-bottom:18px;
+}
+.sql-carousel-head h3{font-size:1.05rem;}
+.sql-nav{display:flex; align-items:center; gap:14px;}
+.sql-nav .sql-pos{
+  font-family:var(--ff-mono); font-size:0.82rem; color:var(--fog); min-width:52px; text-align:center;
+}
+.sql-nav button{
+  width:36px; height:36px; border-radius:9px;
+  border:1px solid var(--line-strong); background:var(--panel);
+  color:var(--paper); font-size:1rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease, border-color .2s ease;
+}
+.sql-nav button:hover{background:var(--panel-2); border-color:var(--teal);}
+.sql-nav button:disabled{opacity:0.35; cursor:default;}
+.sql-nav button:disabled:hover{background:var(--panel); border-color:var(--line-strong);}
+
+.sql-track{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:20px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--line-strong) transparent;
+  padding-bottom:6px;
+}
+.sql-track::-webkit-scrollbar{height:6px;}
+.sql-track::-webkit-scrollbar-thumb{background:var(--line-strong); border-radius:6px;}
+.sql-slide{
+  flex:0 0 100%;
+  scroll-snap-align:center;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.sql-slide-head{
+  display:flex; align-items:center; gap:12px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--line);
+  background:var(--panel-2);
+}
+.sql-slide-head .sql-badge{
+  font-family:var(--ff-mono); font-size:0.78rem; font-weight:600;
+  color:var(--gold); border:1px solid rgba(232,166,61,0.4);
+  border-radius:7px; padding:3px 9px; flex:0 0 auto;
+}
+.sql-slide-head .sql-title{font-size:0.95rem; color:var(--paper); flex:1;}
+.sql-copy-btn{
+  font-family:var(--ff-mono); font-size:0.72rem;
+  background:transparent; border:1px solid var(--line-strong);
+  color:var(--fog); padding:6px 12px; border-radius:7px; cursor:pointer;
+  flex:0 0 auto; transition:all .2s ease;
+}
+.sql-copy-btn:hover{border-color:var(--teal); color:var(--teal);}
+.sql-slide pre{
+  margin:0; padding:20px;
+  max-height:440px; overflow:auto;
+  font-family:var(--ff-mono); font-size:0.82rem; line-height:1.65;
+  white-space:pre;
+}
+.sql-slide code{font-family:inherit;}
+.sql-k{color:#7FB8FF;}
+.sql-s{color:var(--gold);}
+.sql-c{color:var(--fog); font-style:italic;}
+.sql-n{color:var(--teal);}
+
+.sql-dots{display:flex; gap:7px; justify-content:center; margin-top:16px; flex-wrap:wrap;}
+.sql-dots button{
+  width:7px; height:7px; border-radius:50%;
+  border:none; background:var(--line-strong); cursor:pointer; padding:0;
+  transition:background .2s ease, transform .2s ease;
+}
+.sql-dots button.active{background:var(--gold); transform:scale(1.35);}
+
+@media (max-width:700px){
+  .sql-slide pre{font-size:0.72rem; max-height:360px;}
+}
+
+/* pipeline diagram */
+/* ER schema diagram */
+.erd-svg{width:100%; height:auto; display:block;}
+.erd-svg a{cursor:pointer;}
+.erd-svg a:hover rect{stroke:#E8A63D; stroke-width:2;}
+.erd-svg a:hover .erd-name{text-decoration:underline;}
+.erd-name{font-family:var(--ff-mono); font-weight:700; font-size:14px;}
+.erd-badge{font-family:var(--ff-mono); font-size:10px; letter-spacing:0.04em;}
+.erd-count{font-family:var(--ff-mono); font-size:11px; fill:var(--fog);}
+.erd-pk{font-family:var(--ff-mono); font-size:12px; fill:#E8A63D;}
+.erd-fk{font-family:var(--ff-mono); font-size:11.5px; fill:#34C7B8;}
+.erd-col{font-family:var(--ff-mono); font-size:11px; fill:var(--fog);}
+.erd-edge-label{font-family:var(--ff-mono); font-size:10.5px; fill:var(--fog);}
+.erd-legend{display:flex; flex-wrap:wrap; gap:18px; margin-top:16px;}
+.erd-legend .item{display:flex; align-items:center; gap:7px; font-family:var(--ff-mono); font-size:0.74rem; color:var(--fog);}
+
+.pipeline{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  margin-top:40px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+.pipeline .step{
+  flex:1 1 0;
+  min-width:150px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px 18px;
+  position:relative;
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.pipeline .step:hover{
+  border-color:var(--gold);
+  background:var(--panel-2);
+  transform:translateY(-2px);
+}
+.pipeline .step .n{font-family:var(--ff-mono); font-size:0.7rem; color:var(--gold);}
+.pipeline .step h4{font-size:0.95rem; margin-top:8px; line-height:1.3;}
+.pipeline .step small{color:var(--fog); font-size:0.78rem; display:block; margin-top:6px;}
+.pipeline .arrow{
+  flex:0 0 auto;
+  width:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--teal);
+  font-size:1.1rem;
+}
+
+/* data table */
+.data-table{width:100%; border-collapse:collapse; margin-top:10px;}
+.data-table th{
+  text-align:left; font-family:var(--ff-mono); font-size:0.72rem;
+  text-transform:uppercase; letter-spacing:0.08em; color:var(--teal);
+  padding:10px 14px; border-bottom:1px solid var(--line-strong);
+}
+.data-table td{
+  padding:12px 14px; border-bottom:1px solid var(--line);
+  font-size:0.9rem; color:var(--paper);
+}
+.data-table td.mono{font-family:var(--ff-mono); color:var(--fog); font-size:0.85rem;}
+
+/* stat blocks */
+.stat{
+  font-family:var(--ff-mono);
+  font-size:clamp(1.7rem,3vw,2.3rem);
+  font-weight:600;
+  color:var(--paper);
+  line-height:1;
+}
+.stat.gold{color:var(--gold);}
+.stat.teal{color:var(--teal);}
+.stat.coral{color:var(--coral);}
+.stat-label{font-size:0.82rem; color:var(--fog); margin-top:8px;}
+
+/* bar chart (CSS) */
+.barchart{
+  display:flex;
+  align-items:flex-end;
+  gap:28px;
+  height:200px;
+  padding-top:10px;
+  border-bottom:1px solid var(--line-strong);
+  margin-top:26px;
+}
+.barchart .bcol{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  flex:1;
+  height:100%;
+  justify-content:flex-end;
+}
+.barchart .bcol .val{font-family:var(--ff-mono); font-size:0.82rem; color:var(--paper);}
+.barchart .bcol .bar{
+  width:100%; max-width:64px;
+  border-radius:6px 6px 0 0;
+  background:linear-gradient(180deg, var(--teal), rgba(52,199,184,0.35));
+}
+.barchart .bcol .bar.gold{background:linear-gradient(180deg, var(--gold), rgba(232,166,61,0.35));}
+.barchart .bcol .bar.coral{background:linear-gradient(180deg, var(--coral), rgba(255,107,92,0.35));}
+.barchart .bcol .lbl{font-size:0.78rem; color:var(--fog); text-align:center;}
+
+.chart-pair{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:30px;}
+@media (max-width:700px){ .chart-pair{grid-template-columns:1fr;} }
+.chart-box{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:24px;}
+.chart-box h4{font-size:0.92rem; color:var(--fog); font-weight:500; margin-bottom:4px;}
+.chart-box .chart-note{font-size:0.78rem; color:var(--fog); margin-top:14px; opacity:0.85;}
+
+/* pareto stacked bar */
+.stackbar{
+  display:flex; height:46px; border-radius:10px; overflow:hidden; margin-top:26px;
+  border:1px solid var(--line-strong);
+}
+.stackbar .seg{display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.82rem; font-weight:600;}
+.stackbar .seg.top{background:linear-gradient(90deg, var(--gold), #c98a2c); color:#1A1204;}
+.stackbar .seg.rest{background:var(--panel-2); color:var(--fog);}
+
+/* seasonality schematic */
+/* (seasonality now uses embedded Tableau Public viz, styled via .chart-box) */
+
+/* insight banner */
+.insight{
+  display:flex; gap:16px; align-items:flex-start;
+  background:var(--gold-soft);
+  border:1px solid rgba(232,166,61,0.35);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  margin-top:24px;
+}
+.insight.coral{background:var(--coral-soft); border-color:rgba(255,107,92,0.35);}
+.insight.teal{background:var(--teal-soft); border-color:rgba(52,199,184,0.35);}
+.insight .ico{font-size:1.3rem; line-height:1;}
+.insight p{color:var(--paper); font-size:0.94rem;}
+.insight b{color:var(--gold);}
+.insight.coral b{color:var(--coral);}
+.insight.teal b{color:var(--teal);}
+
+/* subsection block */
+.subsec{margin-top:56px; padding-top:48px; border-top:1px solid var(--line);}
+.subsec:first-of-type{margin-top:0; padding-top:0; border-top:none;}
+.subsec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;}
+.subsec-head .idx{font-family:var(--ff-mono); color:var(--gold); font-size:0.95rem;}
+.subsec-head h3{font-size:clamp(1.25rem,2.2vw,1.6rem);}
+.subsec-viz-tag{
+  font-family:var(--ff-mono); font-size:0.72rem; color:var(--teal);
+  border:1px solid rgba(52,199,184,0.35); padding:3px 10px; border-radius:999px;
+  margin-left:auto;
+}
+
+/* bubble chart */
+.bubble-svg{width:100%; height:auto;}
+.bubble-svg .axis{stroke:var(--line-strong); stroke-width:1;}
+.bubble-svg .gridline{stroke:var(--line); stroke-width:1; stroke-dasharray:3 5;}
+.bubble-svg .axis-label{font-family:var(--ff-mono); font-size:11px; fill:var(--fog);}
+.bubble{stroke-width:1.5;}
+.bubble.electronics{fill:rgba(255,107,92,0.28); stroke:var(--coral);}
+.bubble.beauty{fill:rgba(232,166,61,0.28); stroke:var(--gold);}
+.bubble.sports{fill:rgba(52,199,184,0.28); stroke:var(--teal);}
+.bubble-name{font-family:var(--ff-mono); font-weight:600; font-size:13px; fill:var(--paper);}
+.bubble-sub{font-family:var(--ff-mono); font-size:10.5px; fill:var(--fog);}
+
+/* KPI chip register */
+.kpi-register{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px;}
+.kpi-chip{
+  display:flex; align-items:center; gap:8px;
+  background:var(--panel); border:1px solid var(--line-strong);
+  border-radius:10px; padding:12px 16px;
+  font-size:0.86rem; color:var(--paper);
+}
+.kpi-chip .ico{color:var(--gold); font-size:1rem;}
+
+/* mini dashboard preview grid */
+.mini-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:28px;}
+@media (max-width:980px){ .mini-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:560px){ .mini-grid{grid-template-columns:1fr;} }
+.mini-card{
+  background:var(--panel); border:1px solid var(--line); border-radius:12px;
+  padding:18px; display:flex; flex-direction:column; gap:10px; min-height:150px;
+}
+.mini-card .m-label{font-family:var(--ff-mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal);}
+.mini-card .m-fig{font-family:var(--ff-mono); font-size:1.2rem; color:var(--paper); font-weight:600;}
+.mini-card .m-sub{font-size:0.78rem; color:var(--fog); margin-top:auto;}
+
+/* case cards */
+.case-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+.case-head{
+  padding:20px 26px; border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:14px;
+}
+.case-head .badge{
+  font-family:var(--ff-mono); font-weight:700; font-size:0.85rem;
+  width:34px; height:34px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--gold-soft); color:var(--gold); flex:0 0 auto;
+}
+.case-head h3{font-size:1.1rem;}
+.case-body{padding:22px 26px;}
+.case-body .q{font-size:0.8rem; color:var(--teal); font-family:var(--ff-mono); text-transform:uppercase; letter-spacing:0.06em;}
+.case-body .q-text{margin-top:6px; color:var(--paper); font-size:1rem;}
+.case-compare{display:flex; gap:20px; margin-top:22px; flex-wrap:wrap;}
+.case-compare .cc{flex:1; min-width:160px; background:var(--panel-2); border-radius:10px; padding:16px;}
+.case-compare .cc h5{font-family:var(--ff-mono); font-size:0.8rem; color:var(--fog); font-weight:500; margin-bottom:8px;}
+.case-compare .cc .stat{font-size:1.5rem;}
+
+/* footer */
+footer{padding:56px 48px; text-align:center;}
+footer .fmark{font-family:var(--ff-mono); font-size:0.78rem; color:var(--fog);}
+footer .fmark span{color:var(--gold);}
+
+/* closing banner */
+.closing{
+  margin-top:40px;
+  background:linear-gradient(135deg, rgba(232,166,61,0.12), rgba(52,199,184,0.08));
+  border:1px solid rgba(232,166,61,0.3);
+  border-radius:var(--radius);
+  padding:36px;
+  text-align:center;
+}
+.closing p{font-size:clamp(1.05rem,2vw,1.35rem); color:var(--paper); font-family:var(--ff-display); font-weight:500; line-height:1.5;}
+
+.small-caps{font-family:var(--ff-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--fog);}
+
+/* Tableau viz expand button — expands the chart in place, within the page
+   flow (no modal, no new tab). Clicking grows the .chart-box's width beyond
+   its column (breaking out toward the viewport edge) and its height follows
+   automatically since the viz keeps its aspect ratio; clicking again shrinks
+   it back. Everything stays inline in the normal scroll position. */
+.tv-expand-btn{
+  position:absolute; top:10px; right:10px; z-index:5;
+  width:36px; height:36px; border-radius:9px;
+  background:rgba(10,15,29,0.72); border:1px solid rgba(168,179,199,0.35);
+  color:#EEF2FA; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:1.05rem; line-height:1;
+  transition:background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.tv-expand-btn:hover{background:rgba(232,166,61,0.28); border-color:#E8A63D; transform:scale(1.06);}
+.chart-box.tv-inline-expand{
+  transition:width .38s ease, margin-left .38s ease;
+  position:relative;
+  z-index:20;
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
+/* Collapsible / accordion wrapper for Tableau visualizations — hidden by
+   default, only the header is visible; clicking smoothly reveals the
+   (unmodified) embed below it. */
+.tv-accordion{margin-top:26px;}
+.tv-accordion-header{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  gap:14px; background:var(--panel); border:1px solid var(--line);
+  border-radius:12px; padding:16px 20px; cursor:pointer;
+  font-family:var(--ff-display); font-size:1rem; font-weight:600; color:var(--paper);
+  transition:border-color .2s ease, background .2s ease;
+  text-align:left;
+}
+.tv-accordion-header:hover{border-color:var(--teal); background:var(--panel-2);}
+.tv-accordion-header .tv-accordion-icon{
+  font-family:var(--ff-mono); font-size:1.1rem; color:var(--gold);
+  transition:transform .3s ease; flex:0 0 auto;
+}
+.tv-accordion-header.tv-accordion-open .tv-accordion-icon{transform:rotate(90deg);}
+.tv-accordion-body{overflow:hidden; max-height:0; transition:max-height .45s ease;}
+.tv-accordion-body .chart-box{margin-top:14px;}
+</style>
+</head>
+<body>
+
+
+<!-- Tableau Embedding API v3 (modern, responsive tableau-viz web component —
+     used for all interactive Tableau Public visualizations on this page,
+     replacing the legacy viz_v1.js embed, which does not reliably resize
+     its internally-created iframe after the initial render). -->
+<script type='module' src='https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script>
+<script>
+  // Shared helper: hides a visualization's static fallback <img> once the
+  // corresponding <tableau-viz> element reports it has actually rendered.
+  // Until then (offline venue, blocked network, sandboxed preview), the
+  // static image stays visible instead of an empty box.
+  window.initTV = function(vizElId, imgElId){
+    var viz = document.getElementById(vizElId);
+    var img = imgElId ? document.getElementById(imgElId) : null;
+    if(!viz) return;
+    var hidden = false;
+    function hideFallback(){
+      if(hidden) return;
+      hidden = true;
+      if(img) img.style.display = 'none';
+    }
+    viz.addEventListener('firstinteractive', hideFallback);
+  };
+
+  // Shared "expand" toggle: clicking the icon grows the chart's own
+  // .chart-box wider — breaking out toward the viewport edge, past its
+  // normal column — right where it already sits in the page. Nothing
+  // opens in an overlay or a new tab; the rest of the page just reflows
+  // around it, exactly like an inline accordion. Clicking again shrinks
+  // it back to its original size.
+  window.toggleTVExpand = function(btn){
+    var box = btn.closest('.chart-box');
+    if(!box) return;
+
+    if(box.classList.contains('tv-inline-expand')){
+      box.style.width = '';
+      box.style.marginLeft = '';
+      box.classList.remove('tv-inline-expand');
+      btn.textContent = '⤢';
+      btn.title = 'Розгорнути / Vergrößern';
+      window.removeEventListener('resize', box._tvReposition);
+      return;
+    }
+
+    function reposition(){
+      var isMobile = window.innerWidth <= 980;
+      var railW = isMobile ? 0 : 232; // matches --rail-w
+      var edgeMargin = isMobile ? 14 : 32;
+      var rect = box.getBoundingClientRect();
+      var targetLeftX = railW + edgeMargin;
+      var targetWidth = window.innerWidth - targetLeftX - edgeMargin;
+      var deltaLeft = targetLeftX - (rect.left - (parseFloat(box.style.marginLeft) || 0));
+      box.style.width = targetWidth + 'px';
+      box.style.marginLeft = deltaLeft + 'px';
+    }
+
+    box.classList.add('tv-inline-expand');
+    reposition();
+    btn.textContent = '⤡';
+    btn.title = 'Згорнути / Verkleinern';
+    box._tvReposition = reposition;
+    window.addEventListener('resize', reposition, {passive:true});
+  };
+
+  // Accordion toggle for the collapsible Tableau viz sections: only the
+  // header is visible by default; clicking smoothly expands/collapses the
+  // body underneath, which contains the existing embed markup untouched.
+  window.toggleTVAccordion = function(headerBtn){
+    var body = headerBtn.nextElementSibling;
+    if(!body) return;
+    var isOpen = headerBtn.classList.contains('tv-accordion-open');
+
+    if(isOpen){
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          body.style.maxHeight = '0px';
+        });
+      });
+      headerBtn.classList.remove('tv-accordion-open');
+    } else {
+      headerBtn.classList.add('tv-accordion-open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      var onEnd = function(e){
+        if(e.propertyName === 'max-height' && headerBtn.classList.contains('tv-accordion-open')){
+          body.style.maxHeight = 'none';
+          body.removeEventListener('transitionend', onEnd);
+        }
+      };
+      body.addEventListener('transitionend', onEnd);
+    }
+  };
+</script>
+
+
+
+<div class="lang-switch">
+  <button type="button" data-set-lang="ua" class="active">UA</button>
+  <button type="button" data-set-lang="de">DE</button>
+</div>
+
+<nav class="rail">
+  <div class="rail-brand">Shop<span>Sphere</span></div>
+  <div class="rail-list">
+    <a href="#hero" class="num-link"><span class="num">00</span><span><span class="ua">Початок</span><span class="de">Start</span></span></a>
+    <a href="#sec-01"><span class="num">01</span><span><span class="ua">Вступ</span><span class="de">Einleitung</span></span></a>
+    <a href="#sec-02"><span class="num">02</span><span><span class="ua">База даних</span><span class="de">Datenbasis</span></span></a>
+    <a href="#sec-03"><span class="num">03</span><span><span class="ua">SQL</span><span class="de">SQL</span></span></a>
+    <a href="#sec-04"><span class="num">04</span><span><span class="ua">Tableau</span><span class="de">Tableau</span></span></a>
+    <a href="#sec-05"><span class="num">05</span><span><span class="ua">CEO Dashboard</span><span class="de">CEO Dashboard</span></span></a>
+    <a href="#sec-06"><span class="num">06</span><span><span class="ua">Бізнес-кейси</span><span class="de">Business Cases</span></span></a>
+    <a href="#sec-07"><span class="num">07</span><span><span class="ua">A/B-тест</span><span class="de">A/B-Test</span></span></a>
+    <a href="#sec-08"><span class="num">08</span><span><span class="ua">Висновки</span><span class="de">Fazit</span></span></a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="ua">Дипломний проєкт · Data Analytics</span><span class="de">Diplomprojekt · Data Analytics</span></div>
+        <div class="eyebrow" style="margin-top:6px;"><span class="ua">Автор: Viktoriia Tarasova · 2026</span><span class="de">Erstellt von: Viktoriia Tarasova · 2026</span></div>
+        <h1>📊 Shop<span class="accent">Sphere</span><br>
+          <span class="ua">Аналіз глобального маркетплейсу</span>
+          <span class="de">Analyse eines globalen Marktplatzes</span>
+        </h1>
+        <p class="lede">
+          <span class="ua">Дата-орієнтований аналіз для підтримки стратегічних бізнес-рішень — від сирих даних до рекомендацій для CEO та Ради директорів.</span>
+          <span class="de">Datenbasierte Analyse zur Unterstützung strategischer Geschäftsentscheidungen — von Rohdaten bis zu Empfehlungen für CEO und Vorstand.</span>
+        </p>
+        <div class="hero-meta">
+          <div class="item"><b>SQL</b><span class="ua">Підготовка даних &amp; KPI</span><span class="de">Datenaufbereitung &amp; KPI</span></div>
+          <div class="item"><b>Tableau</b><span class="ua">Візуалізація &amp; дашборди</span><span class="de">Visualisierung &amp; Dashboards</span></div>
+          <div class="item"><b><span class="ua">Статистика</span><span class="de">Statistik</span></b><span class="ua">Оцінка A/B-експерименту</span><span class="de">Bewertung A/B-Experiment</span></div>
+        </div>
+      </div>
+      <div class="orbit-wrap">
+        <svg viewBox="0 0 600 600">
+          <g class="orbit-rotate">
+            <line x1="300" y1="300" x2="300" y2="80" stroke="#34C7B8" stroke-width="1.2" opacity="0.5"/>
+            <line x1="300" y1="300" x2="509" y2="232" stroke="#34C7B8" stroke-width="1.2" opacity="0.5"/>
+            <line x1="300" y1="300" x2="429" y2="478" stroke="#34C7B8" stroke-width="1.2" opacity="0.5"/>
+            <line x1="300" y1="300" x2="171" y2="478" stroke="#34C7B8" stroke-width="1.2" opacity="0.5"/>
+            <line x1="300" y1="300" x2="91" y2="232" stroke="#34C7B8" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="300" cy="80" r="36" fill="rgba(232,166,61,0.18)" stroke="#E8A63D" stroke-width="1.5"/>
+            <circle cx="509" cy="232" r="32" fill="rgba(52,199,184,0.18)" stroke="#34C7B8" stroke-width="1.5"/>
+            <circle cx="429" cy="478" r="29" fill="rgba(255,255,255,0.08)" stroke="#93A0BC" stroke-width="1.5"/>
+            <circle cx="171" cy="478" r="22" fill="rgba(255,107,92,0.18)" stroke="#FF6B5C" stroke-width="1.5"/>
+            <circle cx="91" cy="232" r="20" fill="rgba(201,211,230,0.14)" stroke="#C9D3E6" stroke-width="1.5"/>
+            <text x="300" y="76" text-anchor="middle" class="node-label">North America</text>
+            <text x="300" y="96" text-anchor="middle" class="node-value">$718,7K</text>
+            <text x="509" y="228" text-anchor="middle" class="node-label">SE Asia</text>
+            <text x="509" y="247" text-anchor="middle" class="node-value">$613,9K</text>
+            <text x="429" y="474" text-anchor="middle" class="node-label">Europe</text>
+            <text x="429" y="493" text-anchor="middle" class="node-value">$545,6K</text>
+            <text x="171" y="474" text-anchor="middle" class="node-label" style="font-size:12px;">Latin America</text>
+            <text x="171" y="491" text-anchor="middle" class="node-value">$321,39K</text>
+            <text x="91" y="228" text-anchor="middle" class="node-label" style="font-size:12px;">Middle East</text>
+            <text x="91" y="245" text-anchor="middle" class="node-value">$281,07K</text>
+          </g>
+          <g class="orbit-core-pulse">
+            <circle cx="300" cy="300" r="58" fill="rgba(10,15,29,0.9)" stroke="#E8A63D" stroke-width="2"/>
+            <text x="300" y="296" text-anchor="middle" class="node-label" style="font-size:15px;">Shop</text>
+            <text x="300" y="314" text-anchor="middle" class="node-label" style="font-size:15px; fill:var(--gold);">Sphere</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 EINLEITUNG -->
+  <section class="section" id="sec-01">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">01 · <span class="ua">Вступ і мета проєкту</span><span class="de">Einleitung &amp; Projektziel</span></div>
+        <h2><span class="ua">Бізнес-виклик</span><span class="de">Business-Herausforderung</span></h2>
+        <p class="lede">
+          <span class="ua">ShopSphere — глобальний онлайн-маркетплейс із різними категоріями товарів та міжнародними регіонами. CEO потребує відповіді на ключові бізнес-питання:</span>
+          <span class="de">ShopSphere ist ein globaler Online-Marktplatz mit verschiedenen Produktkategorien und internationalen Regionen. Der CEO benötigt Antworten auf zentrale Geschäftsfragen:</span>
+        </p>
+      </div>
+
+      <div class="grid grid-2 reveal">
+        <div class="card">
+          <h3><span class="ua">Ключові питання CEO</span><span class="de">Zentrale Fragen des CEO</span></h3>
+          <ul>
+            <li><span class="ua">Куди спрямовуються маркетингові витрати і які канали дійсно ефективні?</span><span class="de">Wohin fließen die Marketingausgaben und welche Kanäle sind wirklich effizient?</span></li>
+            <li><span class="ua">Які клієнти створюють найбільшу цінність для компанії?</span><span class="de">Welche Kunden erzeugen den größten Unternehmenswert?</span></li>
+            <li><span class="ua">Які категорії товарів справді прибуткові?</span><span class="de">Welche Produktkategorien sind tatsächlich profitabel?</span></li>
+            <li><span class="ua">Які регіони мають найбільший потенціал зростання?</span><span class="de">Welche Regionen bieten das größte Wachstumspotenzial?</span></li>
+            <li><span class="ua">Чи новий дизайн checkout позитивно впливає на клієнтів?</span><span class="de">Hat das neue Checkout-Design einen positiven Einfluss auf Kunden?</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="ua">Мета проєкту</span><span class="de">Ziel des Projekts</span></h3>
+          <ul>
+            <li><span class="ua">Підготувати первинні дані</span><span class="de">Rohdaten aufzubereiten</span></li>
+            <li><span class="ua">Розрахувати ключові бізнес-KPI</span><span class="de">Wichtige Business-KPIs zu berechnen</span></li>
+            <li><span class="ua">Виявити патерни та потенціал зростання</span><span class="de">Muster und Wachstumspotenziale zu identifizieren</span></li>
+            <li><span class="ua">Сформувати стратегічні рекомендації для менеджменту</span><span class="de">Strategische Empfehlungen für das Management abzuleiten</span></li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag gold">SQL</span>
+            <span class="tag teal">Tableau</span>
+            <span class="tag"><span class="ua">Статистичний аналіз</span><span class="de">Statistische Analyse</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 DATENBASIS -->
+  <section class="section" id="sec-02">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">02 · <span class="ua">База даних і підхід</span><span class="de">Datenbasis &amp; Vorgehensweise</span></div>
+        <h2><span class="ua">Джерела даних &amp; структура</span><span class="de">Datenquellen &amp; Struktur</span></h2>
+        <p class="lede">
+          <span class="ua">Для аналізу використано п'ять ключових таблиць.</span>
+          <span class="de">Für die Analyse wurden fünf zentrale Tabellen verwendet.</span>
+        </p>
+      </div>
+
+      <div class="reveal">
+        <p class="small-caps" style="margin-top:40px;"><span class="ua">Зв'язки між таблицями (спрощена ER-схема)</span><span class="de">Beziehungen zwischen den Tabellen (vereinfachtes ER-Schema)</span></p>
+        <div class="chart-box" style="margin-top:16px; padding:24px;">
+          <svg class="erd-svg" viewBox="0 0 920 660">
+            <!-- connecting edges (drawn first, under the boxes) -->
+            <line x1="145" y1="200" x2="400" y2="230" stroke="#93A0BC" stroke-width="1.3" opacity="0.55"/>
+            <line x1="775" y1="200" x2="540" y2="230" stroke="#93A0BC" stroke-width="1.3" stroke-dasharray="5 5" opacity="0.55"/>
+            <line x1="470" y1="420" x2="455" y2="470" stroke="#93A0BC" stroke-width="1.3" opacity="0.55"/>
+            <line x1="580" y1="545" x2="660" y2="550" stroke="#93A0BC" stroke-width="1.3" opacity="0.55"/>
+
+            <text class="erd-edge-label" x="272" y="208" text-anchor="middle">customer_id</text>
+            <text class="erd-edge-label" x="657" y="208" text-anchor="middle">channel</text>
+            <text class="erd-edge-label" x="500" y="450" text-anchor="middle">order_id</text>
+            <text class="erd-edge-label" x="620" y="530" text-anchor="middle">product_id</text>
+
+            <!-- customers -->
+            <a href="https://github.com/VikiTarasova/final_project_shopsphere/blob/main/data/shopsphere_customers.csv" target="_blank" rel="noopener">
+            <rect x="30" y="40" width="230" height="160" rx="12" fill="#111B2E" stroke="#93A0BC" stroke-width="1.2"/>
+            <text class="erd-name" x="50" y="66" fill="#EEF2FA">customers</text>
+            <text class="erd-count" x="50" y="84">3 000 <tspan class="ua">рядків</tspan><tspan class="de">Zeilen</tspan></text>
+            <text class="erd-pk" x="50" y="108">🔑 customer_id</text>
+            <text class="erd-col" x="50" y="130">region, acquisition_channel,</text>
+            <text class="erd-col" x="50" y="148">signup_date, country, age</text>
+            </a>
+
+            <!-- products -->
+            <a href="https://github.com/VikiTarasova/final_project_shopsphere/blob/main/data/shopsphere_products.csv" target="_blank" rel="noopener">
+            <rect x="660" y="470" width="230" height="160" rx="12" fill="#111B2E" stroke="#93A0BC" stroke-width="1.2"/>
+            <text class="erd-name" x="680" y="496" fill="#EEF2FA">products</text>
+            <text class="erd-count" x="680" y="514">250 <tspan class="ua">рядків</tspan><tspan class="de">Zeilen</tspan></text>
+            <text class="erd-pk" x="680" y="538">🔑 product_id</text>
+            <text class="erd-col" x="680" y="560">category, price,</text>
+            <text class="erd-col" x="680" y="578">cost, margin_pct</text>
+            </a>
+
+            <!-- orders (main) -->
+            <a href="https://github.com/VikiTarasova/final_project_shopsphere/blob/main/data/shopsphere_orders.csv" target="_blank" rel="noopener">
+            <rect x="345" y="230" width="250" height="190" rx="14" fill="#111B2E" stroke="#E8A63D" stroke-width="2"/>
+            <text class="erd-badge" x="365" y="252" fill="#E8A63D"><tspan class="ua">ГОЛОВНА ТАБЛИЦЯ</tspan><tspan class="de">HAUPTTABELLE</tspan></text>
+            <text class="erd-name" x="365" y="276" fill="#EEF2FA">orders</text>
+            <text class="erd-count" x="365" y="294">~12 300 <tspan class="ua">рядків</tspan><tspan class="de">Zeilen</tspan></text>
+            <text class="erd-pk" x="365" y="318">🔑 order_id</text>
+            <text class="erd-fk" x="365" y="338">🔗 customer_id → customers</text>
+            <text class="erd-col" x="365" y="360">channel, net_amount,</text>
+            <text class="erd-col" x="365" y="378">discount_pct, device</text>
+            <text class="erd-col" x="365" y="396">ab_variant, is_returned</text>
+            </a>
+
+            <!-- order_items -->
+            <a href="https://github.com/VikiTarasova/final_project_shopsphere/blob/main/data/shopsphere_order_items.csv" target="_blank" rel="noopener">
+            <rect x="330" y="470" width="250" height="160" rx="12" fill="#111B2E" stroke="#93A0BC" stroke-width="1.2"/>
+            <text class="erd-name" x="350" y="496" fill="#EEF2FA">order_items</text>
+            <text class="erd-count" x="350" y="514">~26 000 <tspan class="ua">рядків</tspan><tspan class="de">Zeilen</tspan></text>
+            <text class="erd-pk" x="350" y="538">🔑 item_id</text>
+            <text class="erd-fk" x="350" y="556">🔗 order_id → orders</text>
+            <text class="erd-fk" x="350" y="574">🔗 product_id → products</text>
+            <text class="erd-col" x="350" y="596">quantity, unit_price, line_total</text>
+            </a>
+
+            <!-- marketing -->
+            <a href="https://github.com/VikiTarasova/final_project_shopsphere/blob/main/data/shopsphere_marketing.csv" target="_blank" rel="noopener">
+            <rect x="660" y="40" width="230" height="170" rx="12" fill="#111B2E" stroke="#93A0BC" stroke-width="1.2" stroke-dasharray="6 4"/>
+            <text class="erd-name" x="680" y="66" fill="#EEF2FA">marketing</text>
+            <text class="erd-count" x="680" y="84">216 <tspan class="ua">рядків</tspan><tspan class="de">Zeilen</tspan></text>
+            <text class="erd-pk" x="680" y="108">🔑 campaign_id</text>
+            <text class="erd-fk" x="680" y="126">🔗 channel <tspan class="ua">(аналітичний зв'язок)</tspan><tspan class="de">(analytische Verknüpfung)</tspan></text>
+            <text class="erd-col" x="680" y="148">budget, impressions,</text>
+            <text class="erd-col" x="680" y="166">conversions, attributed_revenue</text>
+            </a>
+          </svg>
+
+          <p class="chart-note"><span class="ua">Натисніть на будь-яку таблицю, щоб переглянути відповідні SQL-запити на GitHub.</span><span class="de">Klicken Sie auf eine beliebige Tabelle, um die zugehörigen SQL-Abfragen auf GitHub zu öffnen.</span></p>
+
+          <div class="erd-legend">
+            <div class="item">🔑 <span class="ua">первинний ключ (PK)</span><span class="de">Primärschlüssel (PK)</span></div>
+            <div class="item">🔗 <span class="ua">зовнішній ключ / JOIN (FK)</span><span class="de">Fremdschlüssel / JOIN (FK)</span></div>
+            <div class="item" style="border-top:1px dashed var(--line-strong); padding-top:2px;"><span class="ua">пунктир = аналітичний зв'язок (не строгий JOIN)</span><span class="de">gestrichelt = analytische Verknüpfung (kein strikter JOIN)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="small-caps" style="margin-top:40px;"><span class="ua">Процес аналізу</span><span class="de">Analyseprozess</span></p>
+        <div class="pipeline">
+          <a class="step" href="#sec-02"><div class="n">01</div><h4><span class="ua">Первинні дані</span><span class="de">Rohdaten</span></h4></a>
+          <div class="arrow">→</div>
+          <a class="step" href="#sec-03"><div class="n">02</div><h4>SQL</h4><small><span class="ua">JOIN, агрегації, підзапити</span><span class="de">JOIN, Aggregationen, Subqueries</span></small></a>
+          <div class="arrow">→</div>
+          <a class="step" href="#sec-05"><div class="n">03</div><h4><span class="ua">Бізнес-KPI</span><span class="de">Business-KPIs</span></h4><small><span class="ua">Виручка, ROI, LTV, маржа, повернення</span><span class="de">Umsatz, ROI, LTV, Marge, Retouren</span></small></a>
+          <div class="arrow">→</div>
+          <a class="step" href="#sec-04"><div class="n">04</div><h4>Tableau</h4><small><span class="ua">Візуалізація</span><span class="de">Visualisierung</span></small></a>
+          <div class="arrow">→</div>
+          <a class="step" href="#sec-08"><div class="n">05</div><h4><span class="ua">Рекомендації</span><span class="de">Empfehlungen</span></h4></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 BLOCK 1 SQL -->
+  <section class="section" id="sec-03">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">03 · Block 1</div>
+        <h2><span class="ua">SQL: підготовка даних і розрахунок KPI</span><span class="de">SQL: Datenaufbereitung und KPI-Berechnung</span></h2>
+        <p class="lede"><span class="ua">На першому етапі первинні дані було об'єднано та підготовлено для подальшого аналізу.</span><span class="de">Im ersten Schritt wurden die Rohdaten miteinander verbunden und für weitere Analysen vorbereitet.</span></p>
+      </div>
+
+      <div class="grid grid-3 reveal">
+        <div class="card">
+          <h3><span class="ua">Аналіз клієнтів</span><span class="de">Kundenanalyse</span></h3>
+          <ul>
+            <li><span class="ua">Загальні витрати на клієнта</span><span class="de">Gesamtausgaben pro Kunde</span></li>
+            <li><span class="ua">Кількість замовлень</span><span class="de">Anzahl der Bestellungen</span></li>
+            <li><span class="ua">Топ-10 клієнтів</span><span class="de">Top-10 Kunden</span></li>
+            <li><span class="ua">Клієнти з витратами вище середнього</span><span class="de">Kunden über Durchschnittsausgaben</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="ua">Аналіз товарів</span><span class="de">Produktanalyse</span></h3>
+          <ul>
+            <li><span class="ua">Виручка за категорією</span><span class="de">Umsatz pro Kategorie</span></li>
+            <li><span class="ua">Середня маржа</span><span class="de">Durchschnittliche Marge</span></li>
+            <li><span class="ua">Частка повернень</span><span class="de">Retourenquote</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="ua">Аналіз маркетингу</span><span class="de">Marketinganalyse</span></h3>
+          <ul>
+            <li><span class="ua">Маркетинговий бюджет</span><span class="de">Marketingbudget</span></li>
+            <li><span class="ua">Виручка за каналом</span><span class="de">Umsatz pro Kanal</span></li>
+            <li>ROI, CTR, <span class="ua">конверсія</span><span class="de">Conversion Rate</span></li>
+            <li><span class="ua">Вартість за конверсію</span><span class="de">Cost per Conversion</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sql-carousel reveal">
+        <div class="sql-carousel-head">
+          <h3><span class="ua">Перегляньте SQL-запити проєкту</span><span class="de">SQL-Abfragen des Projekts ansehen</span></h3>
+          <div class="sql-nav">
+            <span class="sql-pos"><span id="sqlPosCurrent">1</span> / <span id="sqlPosTotal">9</span></span>
+            <button type="button" id="sqlPrev" aria-label="Previous">←</button>
+            <button type="button" id="sqlNext" aria-label="Next">→</button>
+          </div>
+        </div>
+        <div class="sql-track" id="sqlTrack"></div>
+        <div class="sql-dots" id="sqlDots"></div>
+      </div>
+
+      <div class="insight teal reveal">
+        <div class="ico">🗄️</div>
+        <p><span class="ua"><b>Результат:</b> SQL став основою для всіх подальших аналізів. Підготовлені дані використано далі для візуалізацій у Tableau.</span>
+        <span class="de"><b>Ergebnis:</b> SQL bildete die Grundlage für alle weiteren Analysen. Die vorbereiteten Daten wurden anschließend für Tableau-Visualisierungen verwendet.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 BLOCK 2 TABLEAU -->
+  <section class="section" id="sec-04">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">04 · Block 2</div>
+        <h2><span class="ua">Візуалізації Tableau</span><span class="de">Tableau Visualisierungen</span></h2>
+        <p class="lede"><span class="ua">Шість аналітичних розрізів, що перетворюють підготовлені дані на бізнес-рішення.</span><span class="de">Sechs Bereiche der Analyse, die zeigen, welche Entscheidungen für das Unternehmen wichtig sind.</span></p>
+      </div>
+
+      <!-- 2.1 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.1</span>
+          <h3><span class="ua">Динаміка виручки та сезонність</span><span class="de">Umsatzentwicklung &amp; Saisonalität</span></h3>
+          <span class="subsec-viz-tag">📈 <span class="ua">Щомісячна виручка 2022–2024</span><span class="de">Monatlicher Umsatz 2022–2024</span></span>
+        </div>
+        <div class="tv-accordion">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Динаміка виручки та сезонність</span><span class="de">Umsatztrend &amp; Saisonalität</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:26px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+            <img id="seasonFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/UmsatztrendSaisonalitt/1.png" alt="Umsatztrend & Saisonalität" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <tableau-viz id="seasonTableauViz"
+              src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/UmsatztrendSaisonalitt"
+              toolbar="hidden" hide-tabs
+              style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+            </tableau-viz>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>initTV('seasonTableauViz','seasonFallbackImg');</script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання) — наведіть курсор на графік для деталей по місяцях.</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung) — Maus über den Chart bewegen für Monatsdetails.</span></p>
+        </div>
+          </div>
+        </div>
+        <div class="insight gold">
+          <div class="ico">📈</div>
+          <p><span class="ua">Аналіз показує чітку сезонну динаміку: виручка помітно зростає з жовтня, найвища виручка досягається у грудні.</span>
+          <span class="de">Die Analyse zeigt eine klare saisonale Entwicklung: Umsätze steigen ab Oktober deutlich an, der höchste Umsatz wird im Dezember erreicht.</span></p>
+        </div>
+        <div class="card" style="margin-top:16px;">
+          <h3><span class="ua">Бізнес-інсайт</span><span class="de">Business Insight</span></h3>
+          <ul>
+            <li><span class="ua">Збільшити товарні запаси</span><span class="de">Lagerbestände erhöhen</span></li>
+            <li><span class="ua">Планувати маркетингові кампанії заздалегідь</span><span class="de">Marketingkampagnen früher planen</span></li>
+            <li><span class="ua">Спрямувати ресурси на 4-й квартал</span><span class="de">Ressourcen auf das 4. Quartal ausrichten</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2.2 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.2</span>
+          <h3><span class="ua">Маркетинг: бюджет vs. ROI</span><span class="de">Marketing: Budget vs. ROI</span></h3>
+        </div>
+        <p class="lede" style="margin-top:10px;"><span class="ua">Порівняно обсяг інвестицій, отриману виручку та ROI різних маркетингових каналів.</span><span class="de">Verglichen wurden Investitionshöhe, erzielter Umsatz und ROI verschiedener Marketingkanäle.</span></p>
+        <div class="chart-pair">
+          <div class="chart-box">
+            <h4><span class="ua">Найбільші бюджети</span><span class="de">Größte Budgets</span></h4>
+            <div class="barchart" style="height:170px;">
+              <div class="bcol"><div class="val">450,96 <span class="ua">тис. USD</span><span class="de">Tsd. USD</span></div><div class="bar coral" style="height:160px;"></div><div class="lbl">Paid Search</div></div>
+              <div class="bcol"><div class="val">286,49 <span class="ua">тис. USD</span><span class="de">Tsd. USD</span></div><div class="bar coral" style="height:102px;"></div><div class="lbl">Social Ads</div></div>
+            </div>
+          </div>
+          <div class="chart-box">
+            <h4><span class="ua">Найвищий ROI</span><span class="de">Höchster ROI</span></h4>
+            <div class="barchart" style="height:170px;">
+              <div class="bcol"><div class="val">8,02</div><div class="bar gold" style="height:160px;"></div><div class="lbl">Organic</div></div>
+              <div class="bcol"><div class="val">6,50</div><div class="bar gold" style="height:130px;"></div><div class="lbl">Email</div></div>
+              <div class="bcol"><div class="val">4,62</div><div class="bar gold" style="height:92px;"></div><div class="lbl">Influencer</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tv-accordion reveal">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Маркетингові канали: бюджет, виручка та ROI</span><span class="de">Marketingkanäle: Budget, Umsatz und ROI</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:14px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+            <img id="marketingRoiFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/MarketingkanleBudgetUmsatzundROI/1.png" alt="Marketingkanäle: Budget, Umsatz und ROI" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <tableau-viz id="marketingRoiTableauViz"
+              src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/MarketingkanleBudgetUmsatzundROI"
+              toolbar="hidden" hide-tabs
+              style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+            </tableau-viz>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>initTV('marketingRoiTableauViz','marketingRoiFallbackImg');</script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання).</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung).</span></p>
+        </div>
+          </div>
+        </div>
+
+        <div class="insight coral">
+          <div class="ico">💡</div>
+          <p><span class="ua"><b>Висновок:</b> високі маркетингові витрати не означають автоматично найвищу ефективність.</span>
+          <span class="de"><b>Erkenntnis:</b> Hohe Marketingausgaben bedeuten nicht automatisch höchste Effizienz.</span></p>
+        </div>
+        <div class="tag-row">
+          <span class="small-caps" style="margin-right:6px;"><span class="ua">Рекомендація:</span><span class="de">Empfehlung:</span></span>
+          <span class="tag gold">Organic</span><span class="tag gold">Influencer</span><span class="tag gold">Email</span>
+        </div>
+      </div>
+
+      <!-- 2.3 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.3</span>
+          <h3><span class="ua">Категорії товарів: виручка vs прибутковість</span><span class="de">Produktkategorien: Umsatz vs. Profitabilität</span></h3>
+          <span class="subsec-viz-tag">📊 Bubble Chart</span>
+        </div>
+        <p class="lede" style="margin-top:10px;"><span class="ua">Порівняно виручку, маржу та частку повернень.</span><span class="de">Verglichen wurden Umsatz, Marge und Retourenquote.</span></p>
+        <div class="chart-box" style="margin-top:26px;">
+          <svg class="bubble-svg" viewBox="0 0 560 300">
+            <line class="axis" x1="60" y1="260" x2="530" y2="260"/>
+            <line class="axis" x1="60" y1="20" x2="60" y2="260"/>
+            <line class="gridline" x1="60" y1="140" x2="530" y2="140"/>
+            <text class="axis-label" x="295" y="288" text-anchor="middle"><tspan class="ua">Маржа (%) →</tspan><tspan class="de">Marge (%) →</tspan></text>
+            <text class="axis-label" x="26" y="140" text-anchor="middle" transform="rotate(-90 26 140)"><tspan class="ua">Частка повернень (%) →</tspan><tspan class="de">Retourenquote (%) →</tspan></text>
+            <circle class="bubble electronics" cx="152" cy="86" r="52"/>
+            <circle class="bubble sports" cx="290" cy="160" r="30"/>
+            <circle class="bubble beauty" cx="482" cy="141" r="20"/>
+            <text class="bubble-name" x="152" y="40" text-anchor="middle">Electronics</text>
+            <text class="bubble-sub" x="152" y="54" text-anchor="middle">2,10 <tspan class="ua">млн USD</tspan><tspan class="de">Mio. USD</tspan> · 12% · 15,6%</text>
+            <text class="bubble-name" x="290" y="122" text-anchor="middle">Sports</text>
+            <text class="bubble-sub" x="290" y="136" text-anchor="middle">343 <tspan class="ua">тис. $</tspan><tspan class="de">Tsd. $</tspan> · 30% · 8,6%</text>
+            <text class="bubble-name" x="482" y="108" text-anchor="middle">Beauty</text>
+            <text class="bubble-sub" x="482" y="122" text-anchor="middle">168,6 <tspan class="ua">тис. USD</tspan><tspan class="de">Tsd. USD</tspan> · 55% · 10,4%</text>
+          </svg>
+          <p class="chart-note"><span class="ua">Розмір бульбашки — виручка категорії; позиція — маржа (гор.) і частка повернень (верт.)</span><span class="de">Blasengröße = Umsatz der Kategorie; Position = Marge (horizontal) und Retourenquote (vertikal)</span></p>
+        </div>
+
+        <div class="tv-accordion reveal">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Категорії: виручка, маржа та повернення</span><span class="de">Kategorien: Umsatz, Marge und Retouren</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:14px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+            <img id="categoriesFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/KategorienUmsatzMargeundRetouren/1.png" alt="Kategorien: Umsatz, Marge und Retouren" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <tableau-viz id="categoriesTableauViz"
+              src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/KategorienUmsatzMargeundRetouren"
+              toolbar="hidden" hide-tabs
+              style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+            </tableau-viz>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>initTV('categoriesTableauViz','categoriesFallbackImg');</script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання).</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung).</span></p>
+        </div>
+          </div>
+        </div>
+
+        <div class="grid grid-3 reveal" style="margin-top:20px;">
+          <div class="card">
+            <h3>Electronics — <span class="ua">лідер за виручкою</span><span class="de">Umsatzführer</span></h3>
+            <div class="tag-row"><span class="tag coral"><span class="ua">Проблема: висока виручка, низька прибутковість</span><span class="de">Problem: hoher Umsatz, geringe Profitabilität</span></span></div>
+          </div>
+          <div class="card">
+            <h3>Beauty — <span class="ua">прихований чемпіон</span><span class="de">Hidden Champion</span></h3>
+            <div class="tag-row"><span class="tag gold"><span class="ua">Маржа 55%</span><span class="de">Marge 55%</span></span></div>
+          </div>
+          <div class="card">
+            <h3>Sports</h3>
+            <div class="tag-row"><span class="tag teal"><span class="ua">Маржа 30% · Повернення 8,6%</span><span class="de">Marge 30% · Retouren 8,6%</span></span></div>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="small-caps" style="margin-right:6px;"><span class="ua">Фокус на:</span><span class="de">Fokus auf:</span></span>
+          <span class="tag gold">Beauty</span><span class="tag gold">Sports</span><span class="tag gold">Home &amp; Kitchen</span>
+          <span class="tag coral"><span class="ua">Electronics потребує оптимізації</span><span class="de">Electronics benötigt Optimierung</span></span>
+        </div>
+      </div>
+
+      <!-- 2.4 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.4</span>
+          <h3><span class="ua">Регіональна динаміка виручки</span><span class="de">Regionale Umsatzentwicklung</span></h3>
+          <span class="subsec-viz-tag">2022–2024</span>
+        </div>
+        <div class="chart-box" style="margin-top:20px;">
+          <h4><span class="ua">Виручка за 2024 рік</span><span class="de">Umsatz im Jahr 2024</span></h4>
+          <div class="barchart" style="height:200px;">
+            <div class="bcol"><div class="val">718,7 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:180px;"></div><div class="lbl">North America</div></div>
+            <div class="bcol"><div class="val">613,9 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:154px;"></div><div class="lbl">Southeast Asia</div></div>
+            <div class="bcol"><div class="val">545,6 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:137px;"></div><div class="lbl">Europe</div></div>
+          </div>
+          <p class="chart-note">
+            <span class="ua">North America — найбільший ринок за виручкою. Southeast Asia зросла з 12,7 тис. $ до 613,9 тис. $. Europe — стабільна динаміка з 100,8 тис. $ до 545,6 тис. $.</span>
+            <span class="de">North America — größter Umsatzmarkt. Southeast Asia wuchs von 12,7 Tsd. $ auf 613,9 Tsd. $. Europe — stabile Entwicklung von 100,8 Tsd. $ auf 545,6 Tsd. $.</span>
+          </p>
+
+          <p class="small-caps" style="margin-top:28px;"><span class="ua">Коефіцієнт зростання виручки 2024 до 2023 (за регіонами)</span><span class="de">Umsatzwachstumsfaktor 2024 ggü. 2023 (nach Regionen)</span></p>
+          <div class="mini-grid" style="margin-top:14px;">
+            <div class="mini-card">
+              <div class="m-label">North America</div>
+              <div class="m-fig">×3,05</div>
+              <div class="m-sub"><span class="ua">до 2023 року</span><span class="de">ggü. 2023</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="m-label">Southeast Asia</div>
+              <div class="m-fig" style="color:var(--gold);">×5,74</div>
+              <div class="m-sub"><span class="ua">найвищий темп зростання</span><span class="de">höchste Wachstumsrate</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="m-label">Europe</div>
+              <div class="m-fig">×1,73</div>
+              <div class="m-sub"><span class="ua">найстабільніша динаміка</span><span class="de">stabilste Entwicklung</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="m-label">Latin America</div>
+              <div class="m-fig">×4,58</div>
+              <div class="m-sub"><span class="ua">до 2023 року</span><span class="de">ggü. 2023</span></div>
+            </div>
+            <div class="mini-card">
+              <div class="m-label">Middle East</div>
+              <div class="m-fig">×5,25</div>
+              <div class="m-sub"><span class="ua">до 2023 року</span><span class="de">ggü. 2023</span></div>
+            </div>
+          </div>
+          <p class="chart-note" style="margin-top:16px;">
+            <span class="ua">Latin America та Middle East поки не входять до топ-3 за абсолютною виручкою, але демонструють один із найвищих темпів зростання (×4,58 та ×5,25) — це нові ринки з високим потенціалом.</span>
+            <span class="de">Latin America und Middle East gehören noch nicht zu den Top-3 nach absolutem Umsatz, zeigen jedoch mit den Faktoren ×4,58 und ×5,25 eine der höchsten Wachstumsraten — vielversprechende neue Märkte.</span>
+          </p>
+        </div>
+
+        <div class="tv-accordion reveal">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Розвиток виручки за регіонами</span><span class="de">Umsatzentwicklung nach Regionen</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:14px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+            <img id="regionsFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/UmsatzentwicklungnachRegionen/1.png" alt="Umsatzentwicklung nach Regionen" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <tableau-viz id="regionsTableauViz"
+              src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/UmsatzentwicklungnachRegionen"
+              toolbar="hidden" hide-tabs
+              style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+            </tableau-viz>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>initTV('regionsTableauViz','regionsFallbackImg');</script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання).</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung).</span></p>
+        </div>
+          </div>
+        </div>
+
+        <div class="tag-row">
+          <span class="small-caps" style="margin-right:6px;"><span class="ua">Пріоритети:</span><span class="de">Prioritäten:</span></span>
+          <span class="tag">1. North America → <span class="ua">утримати виручку</span><span class="de">Umsatz sichern</span></span>
+          <span class="tag">2. Southeast Asia → <span class="ua">нарощувати зростання</span><span class="de">Wachstum ausbauen</span></span>
+          <span class="tag">3. Europe → <span class="ua">зберегти стабільну базу</span><span class="de">stabile Basis erhalten</span></span>
+          <span class="tag gold">4. Latin America / Middle East → <span class="ua">спостерігати як ринки із потенціалом</span><span class="de">als Potenzialmärkte beobachten</span></span>
+        </div>
+      </div>
+
+      <!-- 2.5 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.5</span>
+          <h3><span class="ua">Парето-аналіз цінності клієнтів</span><span class="de">Pareto-Analyse Kundenwert</span></h3>
+        </div>
+        <p class="lede" style="margin-top:10px;"><span class="ua">Яку частку виручки створюють найцінніші клієнти?</span><span class="de">Welchen Umsatzanteil erzeugen die wertvollsten Kunden?</span></p>
+
+        <div class="tv-accordion">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Парето-аналіз цінності клієнтів</span><span class="de">Pareto-Analyse Kundenwert</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:20px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+            <img id="paretoFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/Pareto-AnalyseTop5-Kunden/1.png" alt="Pareto-Analyse Top 5% Kunden" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <tableau-viz id="paretoTableauViz"
+              src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Pareto-AnalyseTop5-Kunden"
+              toolbar="hidden" hide-tabs
+              style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+            </tableau-viz>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>initTV('paretoTableauViz','paretoFallbackImg');</script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання).</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung).</span></p>
+        </div>
+          </div>
+        </div>
+
+        <div class="chart-box" style="margin-top:20px;">
+          <div class="stackbar">
+            <div class="seg top" style="width:35.07%;">35,07%</div>
+            <div class="seg rest" style="width:64.93%;">64,93%</div>
+          </div>
+          <div class="tag-row" style="margin-top:14px;">
+            <span class="tag gold"><span class="ua">Топ 5% клієнтів → 1,218 млн $</span><span class="de">Top 5% Kunden → 1,218 Mio. $</span></span>
+            <span class="tag"><span class="ua">Решта 95% клієнтів</span><span class="de">Übrige 95% Kunden</span></span>
+          </div>
+        </div>
+        <div class="insight teal">
+          <div class="ico">🎯</div>
+          <p><span class="ua">Невелика група клієнтів створює значну частину виручки.</span><span class="de">Eine kleine Kundengruppe erzeugt einen großen Teil des Umsatzes.</span></p>
+        </div>
+        <div class="tag-row">
+          <span class="small-caps" style="margin-right:6px;"><span class="ua">Інвестиції в:</span><span class="de">Investitionen in:</span></span>
+          <span class="tag teal"><span class="ua">Програми лояльності</span><span class="de">Loyalty-Programme</span></span>
+          <span class="tag teal"><span class="ua">Персоналізовані пропозиції</span><span class="de">Personalisierte Angebote</span></span>
+          <span class="tag teal">VIP</span>
+        </div>
+      </div>
+
+      <!-- 2.6 -->
+      <div class="subsec reveal">
+        <div class="subsec-head">
+          <span class="idx">2.6</span>
+          <h3><span class="ua">Маркетинговий канал і пристрій</span><span class="de">Marketingkanal und Gerät</span></h3>
+        </div>
+        <div class="chart-pair">
+          <div class="chart-box">
+            <h4><span class="ua">Найвища виручка через Mobile</span><span class="de">Höchster Umsatz über Mobile</span></h4>
+            <div class="barchart" style="height:170px;">
+              <div class="bcol"><div class="val">454 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:160px;"></div><div class="lbl">Organic</div></div>
+              <div class="bcol"><div class="val">372 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:131px;"></div><div class="lbl">Paid Search</div></div>
+              <div class="bcol"><div class="val">356 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div><div class="bar" style="height:125px;"></div><div class="lbl">Social Ads</div></div>
+            </div>
+          </div>
+          <div class="chart-box">
+            <h4><span class="ua">Найвища сума замовлення</span><span class="de">Höchster Bestellwert</span></h4>
+            <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+              <div class="insight gold" style="margin:0;"><div class="ico">📱</div><p>Influencer + Tablet → <b>350 USD</b></p></div>
+              <div class="insight teal" style="margin:0;"><div class="ico">🖥️</div><p>Email + Desktop → <b>330 USD</b></p></div>
+              <div class="insight" style="margin:0;"><div class="ico">📲</div><p>Paid Search + Tablet → <b>320 USD</b></p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tv-accordion reveal">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: <span class="ua">Вплив каналу та пристрою на Ø суму замовлення і повернення за регіонами</span><span class="de">Einfluss von Kanal und Gerät auf Ø Bestellwert und Retourenquote nach Regionen</span></span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:14px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:1366/768; border-radius:8px; overflow:hidden;">
+            <img id="channelDeviceFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/Dashboard2/1.png" alt="Einfluss von Kanal und Gerät auf Ø Bestellwert und Retourenquote nach Regionen" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <div id="channelDeviceScaleOuter" style="position:absolute; inset:0; overflow:hidden;">
+              <div id="channelDeviceScaleInner" style="width:1366px; height:768px; transform-origin:top left;">
+                <tableau-viz id="channelDeviceTableauViz"
+                  src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard2"
+                  toolbar="hidden" hide-tabs
+                  style="width:1366px; height:768px; display:block;">
+                </tableau-viz>
+              </div>
+            </div>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>
+            initTV('channelDeviceTableauViz','channelDeviceFallbackImg');
+            (function(){
+              // Published at a Fixed size (1366×768), same as the CEO
+              // Dashboard — rendered at true native size, then visually
+              // scaled down via CSS transform to fit the container width.
+              var outer = document.getElementById('channelDeviceScaleOuter');
+              var inner = document.getElementById('channelDeviceScaleInner');
+              var NATIVE_W = 1366;
+
+              function syncScale(){
+                var scale = outer.clientWidth / NATIVE_W;
+                inner.style.transform = 'scale(' + scale + ')';
+              }
+              syncScale();
+
+              var resizeTimer;
+              window.addEventListener('resize', function(){
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(syncScale, 120);
+              }, {passive:true});
+              window.addEventListener('orientationchange', function(){
+                setTimeout(syncScale, 200);
+              });
+              try{
+                var ro = new ResizeObserver(function(){ syncScale(); });
+                ro.observe(outer);
+              }catch(e){}
+            })();
+          </script>
+          <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання) — оригінальний розмір дашборда 1366×768.</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung) — Originalgröße des Dashboards 1366×768.</span></p>
+        </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <h3><span class="ua">Висновок</span><span class="de">Fazit</span></h3>
+          <p style="margin-bottom:12px;">
+            <span class="ua">Mobile варто й надалі розглядати як найважливіший канал виручки.</span>
+            <span class="de">Mobile sollte weiterhin als wichtigster Umsatzkanal betrachtet werden.</span>
+          </p>
+          <p style="margin-bottom:8px;">
+            <span class="ua">Водночас користувачі Tablet і Desktop, завдяки вищій середній сумі замовлення, мають потенціал для:</span>
+            <span class="de">Gleichzeitig bieten Tablet- und Desktop-Nutzer aufgrund ihres höheren durchschnittlichen Bestellwerts Potenzial für:</span>
+          </p>
+          <ul>
+            <li><span class="ua">Преміум-пропозицій</span><span class="de">Premium-Angebote</span></li>
+            <li><span class="ua">Цільових товарних рекомендацій</span><span class="de">Gezielte Produktempfehlungen</span></li>
+            <li>Up-Selling</li>
+          </ul>
+          <div class="insight teal" style="margin-top:20px;">
+            <div class="ico">🏆</div>
+            <p>
+              <span class="ua">Успішні комбінації, такі як <b>Paid Search + Tablet</b>, можуть використовуватись як найкраща практика (Best Practice) для майбутніх маркетингових заходів.</span>
+              <span class="de">Erfolgreiche Kombinationen wie <b>Paid Search + Tablet</b> können als Best Practice für zukünftige Marketingmaßnahmen genutzt werden.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CEO DASHBOARD -->
+  <section class="section" id="sec-05">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">05 · Block 3</div>
+        <h2>CEO Dashboard</h2>
+        <p class="lede"><span class="ua">Створення management-дашборду для швидких рішень.</span><span class="de">Erstellung eines Management-Dashboards für schnelle Entscheidungen.</span></p>
+      </div>
+
+      <div class="reveal">
+        <p class="small-caps"><span class="ua">Дашборд відстежує</span><span class="de">Dashboard zeigt</span></p>
+        <div class="kpi-register">
+          <div class="kpi-chip"><span class="ico">💰</span><span class="ua">Загальна виручка</span><span class="de">Gesamtumsatz</span></div>
+          <div class="kpi-chip"><span class="ico">🧾</span><span class="ua">Замовлення</span><span class="de">Bestellungen</span></div>
+          <div class="kpi-chip"><span class="ico">📐</span><span class="ua">Середня сума замовлення</span><span class="de">Ø Bestellwert</span></div>
+          <div class="kpi-chip"><span class="ico">↩️</span><span class="ua">Частка повернень</span><span class="de">Retourenquote</span></div>
+          <div class="kpi-chip"><span class="ico">👥</span><span class="ua">Кількість клієнтів</span><span class="de">Kundenanzahl</span></div>
+          <div class="kpi-chip"><span class="ico">📊</span><span class="ua">Маржа</span><span class="de">Marge</span></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="small-caps" style="margin-top:40px;"><span class="ua">Живий дашборд (Tableau Public)</span><span class="de">Live-Dashboard (Tableau Public)</span></p>
+        <div class="tv-accordion">
+          <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+            <span>📊 Tableau: CEO Dashboard</span>
+            <span class="tv-accordion-icon">▶</span>
+          </button>
+          <div class="tv-accordion-body">
+        <div class="chart-box" style="margin-top:14px; padding:20px;">
+          <div style="position:relative; width:100%; aspect-ratio:1366/768; border-radius:8px; overflow:hidden;">
+            <img id="ceoFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/Dashboard1/1.png" alt="CEO Dashboard" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+            <div id="ceoScaleOuter" style="position:absolute; inset:0; overflow:hidden;">
+              <div id="ceoScaleInner" style="width:1366px; height:768px; transform-origin:top left;">
+                <tableau-viz id="ceoTableauViz"
+                  src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard1"
+                  toolbar="hidden" hide-tabs
+                  style="width:1366px; height:768px; display:block;">
+                </tableau-viz>
+              </div>
+            </div>
+            <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+              onclick="toggleTVExpand(this)">⤢</button>
+          </div>
+          <script>
+            initTV('ceoTableauViz','ceoFallbackImg');
+            (function(){
+              // This dashboard is published at a Fixed size (1366×768), not
+              // Automatic — Tableau will not reflow a fixed-size dashboard to
+              // an arbitrary container width; if it's squeezed into a smaller
+              // CSS box it just clips or scrolls internally. The reliable fix
+              // is the opposite approach: always render it at its true native
+              // 1366×768 size, then visually scale the whole thing down with
+              // a CSS transform to match the available width. Because the
+              // outer box's aspect-ratio is locked to the same 1366:768 ratio,
+              // one uniform width-based scale factor fits both dimensions
+              // exactly — no clipping, no internal scrollbars.
+              var outer = document.getElementById('ceoScaleOuter');
+              var inner = document.getElementById('ceoScaleInner');
+              var NATIVE_W = 1366;
+
+              function syncScale(){
+                var scale = outer.clientWidth / NATIVE_W;
+                inner.style.transform = 'scale(' + scale + ')';
+              }
+              syncScale();
+
+              var resizeTimer;
+              window.addEventListener('resize', function(){
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(syncScale, 120);
+              }, {passive:true});
+              window.addEventListener('orientationchange', function(){
+                setTimeout(syncScale, 200);
+              });
+              try{
+                var ro = new ResizeObserver(function(){ syncScale(); });
+                ro.observe(outer);
+              }catch(e){}
+            })();
+          </script>
+          <p class="chart-note"><span class="ua">Інтерактивний CEO Dashboard, Tableau Public (за наявності з'єднання) — оригінальний розмір дашборда 1366×768.</span><span class="de">Interaktives CEO Dashboard, Tableau Public (bei bestehender Verbindung) — Originalgröße des Dashboards 1366×768.</span></p>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="small-caps" style="margin-top:40px;"><span class="ua">Дашборд поєднує 5 сфер аналізу</span><span class="de">Dashboard kombiniert 5 Analysebereiche</span></p>
+        <div class="mini-grid">
+          <div class="mini-card">
+            <div class="m-label"><span class="ua">Тренд виручки</span><span class="de">Umsatztrend</span></div>
+            <div class="m-fig"><span class="ua">Сезонність: грудень</span><span class="de">Saisonalität: Dezember</span></div>
+            <div class="m-sub"><span class="ua">Зростання з жовтня</span><span class="de">Anstieg ab Oktober</span></div>
+          </div>
+          <div class="mini-card">
+            <div class="m-label"><span class="ua">Маркетингова ефективність</span><span class="de">Marketingperformance</span></div>
+            <div class="m-fig">Organic · 8,02 ROI</div>
+            <div class="m-sub"><span class="ua">Найефективніший канал</span><span class="de">Effizientester Kanal</span></div>
+          </div>
+          <div class="mini-card">
+            <div class="m-label"><span class="ua">Прибуткові категорії</span><span class="de">Profitable Kategorien</span></div>
+            <div class="m-fig">Beauty · 55%</div>
+            <div class="m-sub"><span class="ua">Найвища маржа</span><span class="de">Höchste Marge</span></div>
+          </div>
+          <div class="mini-card">
+            <div class="m-label"><span class="ua">Регіони</span><span class="de">Regionen</span></div>
+            <div class="m-fig">North America</div>
+            <div class="m-sub">718,7 <span class="ua">тис. $</span><span class="de">Tsd. $</span></div>
+          </div>
+          <div class="mini-card">
+            <div class="m-label"><span class="ua">Топ-клієнти</span><span class="de">Top-Kunden</span></div>
+            <div class="m-fig">35,07%</div>
+            <div class="m-sub"><span class="ua">виручки від топ 5% клієнтів</span><span class="de">Umsatz von Top 5% Kunden</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight reveal" style="margin-top:36px;">
+        <div class="ico">🏢</div>
+        <p><span class="ua"><b>Користь для менеджменту:</b> CEO отримує швидкий огляд — що працює, де є проблеми і куди варто інвестувати.</span>
+        <span class="de"><b>Nutzen für Management:</b> Der CEO erhält einen schnellen Überblick — was funktioniert, wo es Probleme gibt und wo investiert werden sollte.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 BUSINESS CASES -->
+  <section class="section" id="sec-06">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">06 · Block 4</div>
+        <h2><span class="ua">Стратегічні бізнес-кейси</span><span class="de">Strategische Business Cases</span></h2>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1fr; gap:22px;">
+        <div class="case-card reveal">
+          <div class="case-head"><div class="badge">A</div><h3><span class="ua">Маркетинговий бюджет</span><span class="de">Marketingbudget</span></h3></div>
+          <div class="case-body">
+            <div class="q"><span class="ua">Питання</span><span class="de">Frage</span></div>
+            <div class="q-text"><span class="ua">Які канали створюють найбільшу цінність?</span><span class="de">Welche Kanäle erzeugen den größten Wert?</span></div>
+            <div class="case-compare">
+              <div class="cc"><h5>Organic</h5><div class="stat gold">8,02 <span style="font-size:0.9rem;">ROI</span></div><div class="stat-label">LTV: 1 316 <span class="ua">USD</span><span class="de">USD</span></div></div>
+              <div class="cc"><h5>Influencer</h5><div class="stat gold">1 985 USD</div><div class="stat-label"><span class="ua">найвища цінність клієнта (LTV)</span><span class="de">höchster Kundenwert (LTV)</span></div></div>
+            </div>
+            <div class="tag-row">
+              <span class="small-caps" style="margin-right:6px;"><span class="ua">Рекомендація:</span><span class="de">Empfehlung:</span></span>
+              <span class="tag gold">Organic</span><span class="tag gold">Influencer</span><span class="tag gold">Referral</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card reveal">
+          <div class="case-head"><div class="badge">B</div><h3><span class="ua">Прибутковість категорій</span><span class="de">Profitabilität Kategorien</span></h3></div>
+          <div class="case-body">
+            <div class="q"><span class="ua">Висновок</span><span class="de">Ergebnis</span></div>
+            <div class="q-text"><span class="ua">Самої виручки недостатньо для оцінки успіху категорії.</span><span class="de">Umsatz allein reicht nicht aus.</span></div>
+            <div class="case-compare">
+              <div class="cc"><h5>Electronics</h5><div class="stat coral"><span class="ua">Висока виручка</span><span class="de">Hoher Umsatz</span></div><div class="stat-label"><span class="ua">але низька прибутковість</span><span class="de">aber geringe Profitabilität</span></div></div>
+              <div class="cc"><h5>Beauty</h5><div class="stat gold"><span class="ua">Найвища маржа</span><span class="de">Höchste Marge</span></div><div class="stat-label"><span class="ua">великий потенціал зростання</span><span class="de">großes Wachstumspotenzial</span></div></div>
+            </div>
+            <div class="tag-row">
+              <span class="small-caps" style="margin-right:6px;"><span class="ua">Фокус:</span><span class="de">Fokus:</span></span>
+              <span class="tag gold"><span class="ua">розвивати Beauty</span><span class="de">Beauty ausbauen</span></span>
+              <span class="tag coral"><span class="ua">оптимізувати Electronics</span><span class="de">Electronics optimieren</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card reveal">
+          <div class="case-head"><div class="badge">C</div><h3><span class="ua">Знижки та цінність клієнта</span><span class="de">Rabatte und Kundenwert</span></h3></div>
+          <div class="case-body">
+            <div class="q"><span class="ua">Аналіз</span><span class="de">Analyse</span></div>
+            <div class="q-text"><span class="ua">Вплив знижок на повторні покупки.</span><span class="de">Einfluss von Rabatten auf Wiederkäufe.</span></div>
+            <p class="chart-note" style="margin-top:8px;"><span class="ua">Показник: середня кількість замовлень на клієнта</span><span class="de">Kennzahl: durchschnittliche Anzahl Bestellungen pro Kunde</span></p>
+            <div class="barchart" style="height:170px; max-width:340px;">
+              <div class="bcol"><div class="val">2,17</div><div class="bar coral" style="height:90px;"></div><div class="lbl"><span class="ua">Знижка &gt;20%</span><span class="de">Rabatt &gt;20%</span></div></div>
+              <div class="bcol"><div class="val">4,35</div><div class="bar gold" style="height:160px;"></div><div class="lbl"><span class="ua">Інші клієнти</span><span class="de">Andere Kunden</span></div></div>
+            </div>
+            <div class="insight coral" style="margin-top:20px;">
+              <div class="ico">⚠️</div>
+              <p><span class="ua">Великі знижки стимулюють короткострокові покупки, але не довгострокову лояльність клієнтів.</span><span class="de">Hohe Rabatte fördern kurzfristige Käufe, aber nicht langfristige Kundenbindung.</span></p>
+            </div>
+            <div class="insight teal" style="margin-top:14px;">
+              <div class="ico">💡</div>
+              <p><span class="ua"><b>Рекомендація:</b> високі знижки варто використовувати стратегічно — для залучення нових клієнтів. Для довгострокового утримання ефективніші програми лояльності, персоналізовані пропозиції та цільові маркетингові ініціативи.</span>
+              <span class="de"><b>Empfehlung:</b> Hohe Rabatte sollten strategisch eingesetzt werden — zur Gewinnung neuer Kunden. Für die langfristige Kundenbindung sind Loyalty-Programme, personalisierte Angebote und gezielte Marketinginitiativen effektiver.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 A/B TEST -->
+  <section class="section" id="sec-07">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">07 · Block 5</div>
+        <h2>A/B-<span class="ua">тест Checkout</span><span class="de">Test Checkout</span></h2>
+        <p class="lede"><span class="ua">Оцінка нового дизайну checkout. Variant A → старий, Variant B → новий.</span><span class="de">Bewertung eines neuen Checkout-Designs. Variant A → alt, Variant B → neu.</span></p>
+      </div>
+
+      <div class="chart-pair reveal">
+        <div class="chart-box">
+          <h4><span class="ua">Загальний результат — Ø сума замовлення</span><span class="de">Ergebnis Gesamt — Ø Bestellwert</span></h4>
+          <div class="barchart" style="height:190px;">
+            <div class="bcol"><div class="val">281,72 USD</div><div class="bar" style="height:167px;"></div><div class="lbl">Variant A</div></div>
+            <div class="bcol"><div class="val">287,27 USD</div><div class="bar gold" style="height:170px;"></div><div class="lbl">Variant B</div></div>
+          </div>
+          <p class="chart-note"><span class="ua">Різниця: <b style="color:var(--gold);">+5,55 USD</b></span><span class="de">Unterschied: <b style="color:var(--gold);">+5,55 USD</b></span></p>
+        </div>
+        <div class="chart-box">
+          <h4><span class="ua">Сегмент: нові клієнти</span><span class="de">Segment: neue Kunden</span></h4>
+          <div class="barchart" style="height:190px;">
+            <div class="bcol"><div class="val">223,30 USD</div><div class="bar" style="height:143px;"></div><div class="lbl">Variant A</div></div>
+            <div class="bcol"><div class="val">266,21 USD</div><div class="bar gold" style="height:170px;"></div><div class="lbl">Variant B</div></div>
+          </div>
+          <p class="chart-note"><span class="ua">Покращення: <b style="color:var(--gold);">+19%</b></span><span class="de">Verbesserung: <b style="color:var(--gold);">+19%</b></span></p>
+        </div>
+      </div>
+
+      <div class="tv-accordion reveal">
+        <button type="button" class="tv-accordion-header" onclick="toggleTVAccordion(this)">
+          <span>📊 Tableau: <span class="ua">A/B-тест: Ø сума замовлення</span><span class="de">A/B-Test: Ø Bestellwert</span></span>
+          <span class="tv-accordion-icon">▶</span>
+        </button>
+        <div class="tv-accordion-body">
+      <div class="chart-box" style="margin-top:14px; padding:20px;">
+        <div style="position:relative; width:100%; aspect-ratio:4/3; border-radius:8px; overflow:hidden;">
+          <img id="abtestFallbackImg" src="https://public.tableau.com/static/images/Sh/ShopSphereBusinessPerformanceAnalysis/AB-TestBestellwert/1.png" alt="A/B-Test: Ø Bestellwert" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;" />
+          <tableau-viz id="abtestTableauViz"
+            src="https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/AB-TestBestellwert"
+            toolbar="hidden" hide-tabs
+            style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+          </tableau-viz>
+          <button type="button" class="tv-expand-btn" title="Розгорнути / Vergrößern"
+            onclick="toggleTVExpand(this)">⤢</button>
+        </div>
+        <script>initTV('abtestTableauViz','abtestFallbackImg');</script>
+        <p class="chart-note"><span class="ua">Інтерактивна візуалізація Tableau Public (за наявності з'єднання).</span><span class="de">Interaktive Tableau-Public-Visualisierung (bei bestehender Verbindung).</span></p>
+      </div>
+        </div>
+      </div>
+
+      <div class="insight teal reveal">
+        <div class="ico">🧪</div>
+        <p><span class="ua"><b>Клієнти, що повертаються:</b> покращення &lt;1% — новий дизайн впливає переважно на нових клієнтів.</span>
+        <span class="de"><b>Wiederkehrende Kunden:</b> Verbesserung &lt;1% — das neue Design wirkt vor allem bei neuen Kunden.</span></p>
+      </div>
+
+      <div class="card reveal" style="margin-top:20px;">
+        <h3><span class="ua">Рекомендація</span><span class="de">Empfehlung</span></h3>
+        <p style="margin-bottom:12px;"><span class="ua">Variant B варто впровадити спочатку для нових клієнтів. Перед повним rollout:</span><span class="de">Variant B sollte zuerst für neue Kunden eingeführt werden. Vor vollständigem Rollout:</span></p>
+        <ul>
+          <li><span class="ua">Перевірити конверсію</span><span class="de">Conversion prüfen</span></li>
+          <li><span class="ua">Протестувати статистичну значущість</span><span class="de">Signifikanz testen</span></li>
+          <li><span class="ua">Проаналізувати відмови від checkout</span><span class="de">Checkout-Abbrüche analysieren</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 GESAMTFAZIT -->
+  <section class="section" id="sec-08">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow">08 · <span class="ua">Загальні висновки</span><span class="de">Gesamtfazit</span></div>
+        <h2><span class="ua">Висновки та рекомендації для CEO</span><span class="de">Fazit &amp; Empfehlungen für den CEO</span></h2>
+        <p class="lede"><span class="ua">Стійке зростання виникає не лише завдяки вищій виручці. Вирішальними є чотири фактори:</span><span class="de">Nachhaltiges Wachstum entsteht nicht nur durch höheren Umsatz. Entscheidend sind vier Faktoren:</span></p>
+      </div>
+
+      <div class="grid grid-2 reveal">
+        <div class="card">
+          <h3>1. <span class="ua">Ефективний маркетинг</span><span class="de">Effizientes Marketing</span></h3>
+          <p><span class="ua">Фокус на:</span><span class="de">Fokus auf:</span></p>
+          <div class="tag-row"><span class="tag gold">Organic</span><span class="tag gold">Influencer</span><span class="tag gold">Referral</span></div>
+        </div>
+        <div class="card">
+          <h3>2. <span class="ua">Прибутковий продуктовий портфель</span><span class="de">Profitables Produktportfolio</span></h3>
+          <p><span class="ua">Стимулювати зростання:</span><span class="de">Wachstum fördern bei:</span></p>
+          <div class="tag-row"><span class="tag gold">Beauty</span><span class="tag gold">Sports</span><span class="tag gold">Home &amp; Kitchen</span></div>
+        </div>
+        <div class="card">
+          <h3>3. <span class="ua">Утримання клієнтів</span><span class="de">Kundenbindung</span></h3>
+          <p><span class="ua">Довгостроково утримувати цінних клієнтів через:</span><span class="de">Wertvolle Kunden langfristig halten durch:</span></p>
+          <div class="tag-row"><span class="tag teal"><span class="ua">Програми лояльності</span><span class="de">Loyalty-Programme</span></span><span class="tag teal"><span class="ua">Персоналізовані пропозиції</span><span class="de">Personalisierte Angebote</span></span></div>
+        </div>
+        <div class="card">
+          <h3>4. <span class="ua">Рішення на основі даних</span><span class="de">Datenbasierte Entscheidungen</span></h3>
+          <p>SQL + Tableau + <span class="ua">статистичний аналіз дозволяють:</span><span class="de">statistische Analyse ermöglichen:</span></p>
+          <div class="tag-row"><span class="tag"><span class="ua">Кращі інвестиції</span><span class="de">Bessere Investitionen</span></span><span class="tag"><span class="ua">Вища ефективність</span><span class="de">Höhere Effizienz</span></span></div>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:48px;">
+        <p class="small-caps"><span class="ua">Рекомендації для CEO</span><span class="de">Empfehlungen für den CEO</span></p>
+        <div class="grid" style="grid-template-columns:1fr; gap:16px; margin-top:16px;">
+          <div class="card">
+            <h3>1. <span class="ua">Оптимізувати маркетинговий бюджет</span><span class="de">Marketingbudget optimieren</span></h3>
+            <p><span class="ua">Збільшити інвестиції в Organic, Influencer та Referral — ці канали пропонують найкращу комбінацію ROI та Customer Lifetime Value (LTV). Бюджети для Paid Search і Social Ads — оптимізувати цілеспрямовано.</span>
+            <span class="de">Investitionen in Organic, Influencer und Referral erhöhen. Diese Kanäle bieten die beste Kombination aus ROI und Customer Lifetime Value (LTV). Budgets für Paid Search und Social Ads gezielt optimieren.</span></p>
+          </div>
+          <div class="card">
+            <h3>2. <span class="ua">Посилити прибуткові категорії</span><span class="de">Profitable Kategorien stärken</span></h3>
+            <p><span class="ua">Розвивати категорію Beauty завдяки її високій маржі. Electronics — цілеспрямовано оптимізувати через низьку маржу та високу частку повернень.</span>
+            <span class="de">Die Kategorie Beauty aufgrund ihrer hohen Marge weiter ausbauen. Electronics wegen der niedrigen Marge und hohen Retourenquote gezielt optimieren.</span></p>
+          </div>
+          <div class="card">
+            <h3>3. <span class="ua">Утримувати цінних клієнтів</span><span class="de">Wertvolle Kunden binden</span></h3>
+            <p><span class="ua">Посилити утримання клієнтів через програми лояльності, персоналізовані пропозиції та реферальні програми.</span>
+            <span class="de">Kundenbindung durch Loyalty-Programme, personalisierte Angebote und Referral-Programme stärken.</span></p>
+          </div>
+          <div class="card">
+            <h3>4. <span class="ua">Стратегічно використовувати знижки</span><span class="de">Rabatte strategisch nutzen</span></h3>
+            <p><span class="ua">Застосовувати знижки насамперед для залучення нових клієнтів, оскільки високі знижки практично не підвищують частоту повторних покупок.</span>
+            <span class="de">Rabatte vor allem zur Neukundengewinnung einsetzen, da hohe Rabatte die Wiederkaufsrate kaum erhöhen.</span></p>
+          </div>
+          <div class="card">
+            <h3>5. <span class="ua">Поступово впроваджувати новий checkout</span><span class="de">Checkout schrittweise ausrollen</span></h3>
+            <p><span class="ua">Спочатку запровадити Variant B для нових клієнтів. Перед повним rollout варто додатково проаналізувати конверсію, показник завершення оформлення замовлення, а також відмінності за регіонами та пристроями.</span>
+            <span class="de">Variant B zunächst für Neukunden einführen. Vor dem vollständigen Rollout sollten Conversion Rate, Abschlussquote sowie Unterschiede nach Regionen und Endgeräten weiter analysiert werden.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing reveal">
+        <p><span class="ua">ShopSphere може досягти стійкого зростання завдяки цільовим інвестиціям у прибуткові канали, цінні сегменти клієнтів і категорії з високою маржею.</span>
+        <span class="de">ShopSphere kann durch gezielte Investitionen in profitable Kanäle, wertvolle Kundensegmente und margenstarke Kategorien nachhaltiges Wachstum erreichen.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="fmark">Shop<span>Sphere</span> · <span class="ua">Дипломний проєкт Data Analytics</span><span class="de">Diplomprojekt Data Analytics</span> · SQL · Tableau · A/B Testing</p>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  // language toggle
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('.lang-switch button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-set-lang');
+      root.setAttribute('data-lang', lang);
+      root.setAttribute('lang', lang === 'ua' ? 'uk' : 'de');
+      buttons.forEach(function(b){ b.classList.toggle('active', b === btn); });
+    });
+  });
+
+  // scroll-spy
+  var links = document.querySelectorAll('.rail-list a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if(el) sections.push({id:id, el:el, link:a});
+  });
+
+  function onScroll(){
+    var pos = window.scrollY + window.innerHeight * 0.3;
+    var current = sections[0];
+    sections.forEach(function(s){
+      if(s.el.offsetTop <= pos) current = s;
+    });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var queries = [
+    {
+      id:'1.1',
+      ua:'Виручка, замовлення та середній чек за регіоном і роком',
+      de:'Umsatz, Bestellungen und Ø-Warenkorb nach Region und Jahr',
+      sql:`SELECT
+    c.region,
+    o.order_date,
+    SUM(o.net_amount) AS total_revenue,
+    COUNT(DISTINCT o.order_id) AS total_orders,
+    AVG(o.net_amount) AS avg_order_value
+FROM shopsphere_orders o
+LEFT JOIN shopsphere_customers c
+    ON o.customer_id = c.customer_id
+GROUP BY
+    c.region,
+    o.order_date
+ORDER BY
+    o.order_date,
+    c.region;`
+    },
+    {
+      id:'1.2',
+      ua:'Топ-10 клієнтів за витратами',
+      de:'Top-10 Kunden nach Ausgaben',
+      sql:`SELECT
+    c.customer_id,
+    c.region,
+    c.acquisition_chan,
+    SUM(o.net_amount) AS total_spent,
+    COUNT(DISTINCT o.order_id) AS orders_count
+FROM shopsphere_customers c
+JOIN shopsphere_orders o
+    ON c.customer_id = o.customer_id
+GROUP BY
+    c.customer_id,
+    c.region,
+    c.acquisition_chan
+ORDER BY
+    total_spent DESC
+LIMIT 10;`
+    },
+    {
+      id:'1.3',
+      ua:'Категорії: виручка, маржа та повернення',
+      de:'Kategorien: Umsatz, Marge und Retouren',
+      sql:`SELECT
+    p.category,
+    SUM(oi.line_total) AS category_revenue,
+    AVG(p.margin_pct) / 100 AS avg_margin,
+    AVG(o.is_returned) AS return_rate
+FROM shopsphere_order_items oi
+
+JOIN shopsphere_products p
+    ON oi.product_id = p.product_id
+
+JOIN shopsphere_orders o
+    ON oi.order_id = o.order_id
+
+GROUP BY
+    p.category
+ORDER BY
+    category_revenue DESC;`
+    },
+    {
+      id:'1.4',
+      ua:'Клієнти з витратами вище середнього',
+      de:'Kunden über Durchschnittsausgaben',
+      sql:`SELECT
+    c.customer_id,
+    c.region,
+    c.country,
+    c.acquisition_chan,
+    customer_sales.total_spent
+FROM shopsphere_customers c
+JOIN
+(
+    SELECT
+        customer_id,
+        SUM(net_amount) AS total_spent
+    FROM shopsphere_orders
+    GROUP BY customer_id
+) AS customer_sales
+ON c.customer_id = customer_sales.customer_id
+
+WHERE customer_sales.total_spent >
+(
+    SELECT AVG(total_spent)
+    FROM
+    (
+        SELECT
+            customer_id,
+            SUM(net_amount) AS total_spent
+        FROM shopsphere_orders
+        GROUP BY customer_id
+    ) AS avg_sales
+)
+ORDER BY customer_sales.total_spent DESC;`
+    },
+    {
+      id:'1.5',
+      ua:'Маркетингові канали: бюджет, виручка та ROI',
+      de:'Marketingkanäle: Budget, Umsatz und ROI',
+      sql:`SELECT
+    channel,
+    SUM(budget) AS total_budget,
+    SUM(impressions) AS total_impressions,
+    SUM(clicks) AS total_clicks,
+    SUM(conversions) AS total_conversions,
+    SUM(attributed_reven) AS total_revenue,
+    ROUND(
+        SUM(attributed_reven) * 1.0 / SUM(budget),
+        2
+    ) AS ROI,
+    ROUND(
+        SUM(clicks) * 1.00 / SUM(impressions),
+        4
+    ) AS ctr_percent,
+    ROUND(
+        SUM(conversions) * 1.0 / SUM(clicks),
+        4
+    ) AS conversion_rate_percent,
+    ROUND(
+        SUM(budget) * 1.0 / SUM(conversions),
+        2
+    ) AS cost_per_conversion
+FROM shopsphere_marketing
+GROUP BY channel
+ORDER BY ROI DESC;`
+    },
+    {
+      id:'2.1',
+      ua:'Парето-аналіз: топ-клієнти',
+      de:'Pareto-Analyse: Top-Kunden',
+      sql:`WITH customer_revenue AS (
+    SELECT
+        c.customer_id,
+        c.region,
+        SUM(o.net_amount) AS total_revenue
+    FROM shopsphere_customers c
+    JOIN shopsphere_orders o
+        ON c.customer_id = o.customer_id
+    GROUP BY c.customer_id, c.region
+)
+SELECT
+    customer_id,
+    region,
+    total_revenue,
+    RANK() OVER (ORDER BY total_revenue DESC) AS customer_rank,
+    ROUND(
+        SUM(total_revenue) OVER (ORDER BY total_revenue DESC) * 1.0
+        / SUM(total_revenue) OVER (), 4
+    ) AS cumulative_revenue_percent,
+    ROUND(
+        RANK() OVER (ORDER BY total_revenue DESC) * 1.0
+        / COUNT(*) OVER (), 4
+    ) AS customer_percent,
+    CASE
+        WHEN RANK() OVER (ORDER BY total_revenue DESC) <= COUNT(*) OVER () * 0.05
+        THEN 'Top 5%'
+        ELSE 'Other'
+    END AS customer_group
+FROM customer_revenue
+ORDER BY customer_rank;`
+    },
+    {
+      id:'2.2',
+      ua:'Вплив каналу та пристрою на середню суму замовлення',
+      de:'Einfluss von Kanal und Endgerät auf den durchschnittlichen Bestellwert',
+      sql:`SELECT
+    c.region,
+    o.channel,
+    o.device,
+    COUNT(DISTINCT o.order_id) AS total_orders,
+    SUM(o.net_amount) AS total_revenue,
+    ROUND(AVG(o.net_amount), 2) AS avg_order_value,
+    ROUND(AVG(o.discount_pct), 2) AS avg_discount_pct,
+    ROUND(
+        AVG(o.is_returned),
+        2
+    ) AS return_rate_percent
+FROM shopsphere_orders o
+JOIN shopsphere_customers c ON o.customer_id = c.customer_id
+GROUP BY
+    c.region,
+    o.channel,
+    o.device
+ORDER BY
+    c.region,
+    o.channel,
+    avg_order_value DESC;`
+    },
+    {
+      id:'2.3',
+      ua:'Вплив знижок на цінність клієнта',
+      de:'Einfluss von Rabatten auf den Kundenwert',
+      sql:`WITH customer_stats AS (
+    SELECT
+        customer_id,
+        AVG(discount_pct) AS avg_discount,
+        COUNT(order_id) AS orders_count
+    FROM shopsphere_orders
+    GROUP BY customer_id
+)
+
+SELECT
+    CASE
+        WHEN avg_discount > 20 THEN 'Discount-oriented'
+        ELSE 'Regular'
+    END AS customer_group,
+
+    COUNT(customer_id) AS customers_count,
+    ROUND(AVG(orders_count), 2) AS avg_orders_per_customer,
+    MIN(orders_count) AS min_orders,
+    MAX(orders_count) AS max_orders
+FROM customer_stats
+GROUP BY customer_group;`
+    },
+    {
+      id:'2.4',
+      ua:'A/B-тест: середня сума замовлення — нові vs. постійні клієнти',
+      de:'A/B-Test: Ø Bestellwert – Neukunden vs. Bestandskunden',
+      sql:`WITH first_order AS
+(
+    SELECT
+        customer_id,
+        MIN(order_date) AS first_order_date
+    FROM shopsphere_orders
+    GROUP BY customer_id
+)
+SELECT
+    o.order_id,
+    o.customer_id,
+    o.order_date,
+    o.ab_variant,
+    o.net_amount,
+    c.signup_date,
+    CASE
+        WHEN o.order_date = f.first_order_date
+             AND julianday(o.order_date) - julianday(c.signup_date) <= 60
+        THEN 'New'
+        ELSE 'Returning'
+    END AS customer_type
+FROM shopsphere_orders o
+JOIN shopsphere_customers c ON o.customer_id = c.customer_id
+JOIN first_order f ON o.customer_id = f.customer_id
+WHERE
+    o.ab_variant IN ('A','B')
+    AND o.order_date >= '2024-06-01';`
+    }
+  ];
+
+  var SQL_KEYWORDS = ['SELECT','FROM','WHERE','JOIN','LEFT','RIGHT','INNER','OUTER','ON',
+    'GROUP','BY','ORDER','AS','DISTINCT','COUNT','SUM','AVG','MIN','MAX','CASE','WHEN',
+    'THEN','ELSE','END','WITH','RANK','OVER','PARTITION','LIMIT','ROUND','IN','AND','OR',
+    'NOT','NULL','IS','DESC','ASC','JULIANDAY'];
+  var KEYWORD_SET = {};
+  SQL_KEYWORDS.forEach(function(k){ KEYWORD_SET[k] = true; });
+
+  function escapeHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function highlightSQL(code){
+    var tokenRegex = /(--[^\n]*)|('[^']*')|(\b\d+\.?\d*\b)|([A-Za-z_][A-Za-z0-9_]*)|(\s+)|([^\sA-Za-z0-9_]+)/g;
+    var out = '';
+    var m;
+    while((m = tokenRegex.exec(code)) !== null){
+      if(m[1] !== undefined){ out += '<span class="sql-c">' + escapeHtml(m[1]) + '</span>'; }
+      else if(m[2] !== undefined){ out += '<span class="sql-s">' + escapeHtml(m[2]) + '</span>'; }
+      else if(m[3] !== undefined){ out += '<span class="sql-n">' + escapeHtml(m[3]) + '</span>'; }
+      else if(m[4] !== undefined){
+        var word = m[4];
+        if(KEYWORD_SET[word.toUpperCase()]){ out += '<span class="sql-k">' + escapeHtml(word) + '</span>'; }
+        else{ out += escapeHtml(word); }
+      }
+      else if(m[5] !== undefined){ out += m[5]; }
+      else{ out += escapeHtml(m[6]); }
+    }
+    return out;
+  }
+
+  var track = document.getElementById('sqlTrack');
+  var dotsWrap = document.getElementById('sqlDots');
+  if(!track || !dotsWrap) return;
+
+  queries.forEach(function(q, i){
+    var slide = document.createElement('div');
+    slide.className = 'sql-slide';
+    slide.innerHTML =
+      '<div class="sql-slide-head">' +
+        '<span class="sql-badge">' + q.id + '</span>' +
+        '<span class="sql-title lang-title" data-ua="' + q.ua.replace(/"/g,'&quot;') + '" data-de="' + q.de.replace(/"/g,'&quot;') + '"></span>' +
+        '<button type="button" class="sql-copy-btn" data-idx="' + i + '"><span class="ua">Копіювати</span><span class="de">Kopieren</span></button>' +
+      '</div>' +
+      '<pre><code>' + highlightSQL(q.sql) + '</code></pre>';
+    track.appendChild(slide);
+
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Query ' + q.id);
+    dot.addEventListener('click', function(){ goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+
+  // fill bilingual titles (respects current data-lang without duplicating logic)
+  function applyTitles(){
+    var lang = document.documentElement.getAttribute('data-lang') || 'ua';
+    track.querySelectorAll('.lang-title').forEach(function(el){
+      el.textContent = lang === 'de' ? el.getAttribute('data-de') : el.getAttribute('data-ua');
+    });
+  }
+  applyTitles();
+  document.querySelectorAll('.lang-switch button').forEach(function(btn){
+    btn.addEventListener('click', applyTitles);
+  });
+
+  // copy buttons
+  track.addEventListener('click', function(e){
+    var btn = e.target.closest('.sql-copy-btn');
+    if(!btn) return;
+    var idx = parseInt(btn.getAttribute('data-idx'), 10);
+    var text = queries[idx].sql;
+    var restoreUA = 'Копіювати', restoreDE = 'Kopieren';
+    var doneUA = 'Скопійовано!', doneDE = 'Kopiert!';
+    function flash(){
+      btn.querySelector('.ua').textContent = doneUA;
+      btn.querySelector('.de').textContent = doneDE;
+      setTimeout(function(){
+        btn.querySelector('.ua').textContent = restoreUA;
+        btn.querySelector('.de').textContent = restoreDE;
+      }, 1400);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(flash).catch(flash);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); } catch(err){}
+      document.body.removeChild(ta);
+      flash();
+    }
+  });
+
+  // carousel navigation
+  var slides = track.querySelectorAll('.sql-slide');
+  var dots = dotsWrap.querySelectorAll('button');
+  var posCurrent = document.getElementById('sqlPosCurrent');
+  var posTotal = document.getElementById('sqlPosTotal');
+  var prevBtn = document.getElementById('sqlPrev');
+  var nextBtn = document.getElementById('sqlNext');
+  posTotal.textContent = slides.length;
+  var current = 0;
+
+  function updateUI(){
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === current); });
+    posCurrent.textContent = current + 1;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
+  }
+
+  function goTo(i){
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    slides[current].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    updateUI();
+  }
+
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+  var scrollTimeout;
+  track.addEventListener('scroll', function(){
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function(){
+      var trackCenter = track.scrollLeft + track.clientWidth / 2;
+      var closest = 0, closestDist = Infinity;
+      slides.forEach(function(s, i){
+        var dist = Math.abs((s.offsetLeft + s.clientWidth / 2) - trackCenter);
+        if(dist < closestDist){ closestDist = dist; closest = i; }
+      });
+      current = closest;
+      updateUI();
+    }, 100);
+  }, {passive:true});
+
+  updateUI();
+})();
+</script>
+
+</body>
+</html>
