@@ -17,10 +17,6 @@ Der CEO wendet sich an das Analytics-Team:
 Das Ziel der Analyse ist es, datenbasierte Antworten auf diese Fragen zu liefern und ein verständliches Analytics-Dashboard für strategische Entscheidungen zu erstellen.
 
 ---
-</details>
-
-<details>
-<summary>📌 <b>Projekt</b></summary>
   
 # 📌 Projekt
 
@@ -36,10 +32,6 @@ Im Rahmen der Analyse wurden folgende Bereiche untersucht:
 - Ergebnisse des A/B-Tests zum neuen Checkout-Design.
   
 ---
-</details>
-
-<details>
-<summary>🗂️ <b>Datenquellen</b></summary>
 
 # 🗂️ Datenquellen
 
