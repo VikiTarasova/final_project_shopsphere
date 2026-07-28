@@ -80,12 +80,12 @@ Mithilfe von SQL wurden analytische Datensätze erstellt:
 
 Es wurden 6 zentrale Visualisierungen erstellt:
 
-## 1. Seasonality Analysis  
-## 2. Marketing Performance: Budget vs. ROI  
-## 3. Product Category Analysis  
-## 4. Regional Growth Analysis  
-## 5. Customer Pareto Analysis  
-## 6. Device & Channel Analysis
+ 1. Seasonality Analysis  
+ 2. Marketing Performance: Budget vs. ROI  
+ 3. Product Category Analysis  
+ 4. Regional Growth Analysis  
+ 5. Customer Pareto Analysis  
+ 6. Device & Channel Analysis
 
 **Link:**  
 Tableau Public: **(https://public.tableau.com/views/ShopSphereBusinessPerformanceAnalysis/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
